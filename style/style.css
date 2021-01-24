@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+nav {
+    padding: 0px 1%;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+}
+
+.btn-color {
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+}
+
+.btn-color:hover {
+  transition: all 0.4s ease;;
+  background: -webkit-linear-gradient(right, #a445b2, #fa4299);
+}
+
+.img-dropdown {
+  margin: 15px 20px;
+}
+
+.messenger-dropdown {
+  padding: 0px 70px;
+}
