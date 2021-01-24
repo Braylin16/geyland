@@ -11,68 +11,12 @@
 <body class="grey lighten-5">
 
     <!-- Header -->
-    <header>
-        <!-- Dropdown Structure1 -->
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#" class="black-text">Perfil</a></li>
-            <li><a href="#" class="black-text">Configuraci&oacute;n</a></li>
-            <li class="divider"></li>
-            <li><a href="#" class="black-text">Cerrar Sesi&oacute;n</a></li>
-        </ul>
-
-        <!-- Dropdown Structure2 -->
-        <ul id="dropdown2" class="dropdown-content">
-            <li><a href="#" class="black-text">Mensaje 1</a></li>
-            <li><a href="#" class="black-text">Mensaje 2</a></li>
-            <li class="divider"></li>
-            <li><a href="#" class="black-text">Mensaje 3</a></li>
-        </ul>
-
-        <!-- Navbar -->
-        <div class="navbar-fixed">
-            <nav>
-                <div class="nav-wrapper">
-
-                    <!-- Boton para aparecer el menu | Sidenav -->
-                    <a href="#" data-target="slide-out" class="sidenav-trigger">
-                        <i class="material-icons">menu</i>
-                    </a>
-
-                    <a href="/geyland" class="brand-logo">Geyland</a>
-                    <ul class="right hide-on-med-and-down">
-                    <li><a href="#"><i class="material-icons right">search</i></a></li>
-                    <li><a href="#" class="dropdown-trigger messenger-dropdown" data-target="dropdown2">
-                        <i class="material-icons right">mail</i>
-                    </a></li>
-                    <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-trigger" href="#" data-target="dropdown1">
-                        <img src="images/yo.jpg" alt="Braylin Ivan Payano" class="img-dropdown circle" width="34" height="34">
-                        <i class="material-icons right">arrow_drop_down</i></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header> <!-- End Header -->
-
+    <?php require_once('frontend/header.php') ?>
     <!-- Content -->
     <main class="section">
-
-    <!-- Menu sidenav responsive -->
-    <ul id="slide-out" class="sidenav">
-        <li><div class="user-view">
-        <div class="background">
-            <img src="images/paisaje.jpg">
-        </div>
-        <a href="#user"><img class="circle" src="images/yo.jpg"></a>
-        <a href="#name"><span class="white-text name">Braylin Ivan Payano</span></a>
-        <a href="#email"><span class="white-text email">viraleschanner16@gmail.com</span></a>
-        </div></li>
-        <li><a href="#!"><i class="material-icons">account_circle</i>Perfil</a></li>
-        <li><a href="#!"><i class="material-icons">settings</i>Configuraci&oacute;n</a></li>
-        <li><a href="#!"><i class="material-icons">mail</i>Chat</a></li>
-        <li><a href="#!"><i class="material-icons">search</i>Buscar persona</a></li>
-    </ul><!-- Fin menu -->
-
+        <?php require_once('menu/menu.php') ?>
+        
+        <!-- Content -->
         <section class="container z-depth-1 white">
             <article class="row section">
 
@@ -150,35 +94,10 @@
                 </div>
 
             </article>
-        </section>        
+        </section>
     </main>
-
     <!-- Footer -->
-    <footer class="pink page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Geyland</h5>
-                <p class="grey-text text-lighten-4">Geyland es el sitio perfecto para conocer personas y futuro mejores amigos.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">M&aacute;s informaci&oacute;n</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Uso</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">T&eacute;rminos y condiciones</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Cookies</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Ayuda</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2021 Copyright | Todos los derechos reservados
-            <a class="grey-text text-lighten-4 right" href="#!">Contacto</a>
-            </div>
-          </div>
-        </footer>
+    <?php require_once('frontend/footer.php') ?>
 
     <!-- Script -->
     <script src="materialize/js/materialize.min.js"></script>

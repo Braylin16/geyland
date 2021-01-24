@@ -15,4 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
 
+    // Agrandar imagen con un click
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems);
+
+    // Selectores
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+
   });
