@@ -24,3 +24,30 @@ nav {
 .messenger-dropdown {
   padding: 0px 70px;
 }
+
+/* label focus color */
+.input-field input:focus + label {
+  color: #fa4299 !important;
+}
+
+/* label underline focus color */
+.row .input-field input:focus {
+  border-bottom: 1px solid #fa4299 !important;
+  box-shadow: 0 1px 0 0 #fa4299 !important;
+}
+
+/* label focus color textarea */
+.input-field textarea:focus + label {
+  color: #fa4299 !important;
+}
+
+/* Textarea */
+.row .input-field textarea:focus {
+  border-bottom: 1px solid #fa4299 !important;
+  box-shadow: 0 1px 0 0 #fa4299 !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #fa4299 !important; 
+}

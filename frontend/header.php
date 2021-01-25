@@ -1,3 +1,6 @@
+<!-- Requerimos las url -->
+<?php require_once('./url/url.php') ?>
+
 <!-- Header -->
 <header>
     <!-- Dropdown Structure1 -->
@@ -62,7 +65,7 @@
 
                 <!-- Boton de inicio -->
                 <li>
-                    <a href="/geyland/home" class="messenger-dropdown">
+                    <a href="<?=$url?>" class="messenger-dropdown">
                         <i class="material-icons right">home</i>
                     </a>
                 </li>

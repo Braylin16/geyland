@@ -20,7 +20,7 @@
         <div class="footer-copyright">
             <div class="container">
             © 2021 Copyright | Todos los derechos reservados
-            <a class="grey-text text-lighten-4 right" href="#!">Contacto</a>
+            <a class="grey-text text-lighten-4 right" href="contact">Contacto</a>
         </div>
     </div>
 </footer>

@@ -20,7 +20,10 @@
         <section class="container z-depth-1 white">
             <article class="row section">
 
-                <h1 class="flow-text center-align pink-text">Editar informaci&oacute;n</h1>
+                <h1 class="flow-text center-align pink-text">Contacta con nuestro equipo</h1>
+                <p class="center-align">
+                    Reportar falla o comunicarte con nuestro equipo
+                </p>
 
                 <div class="divider"></div><br>
 
@@ -32,7 +35,7 @@
                             <!-- Nombre -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="name" type="text" class="validate">
+                            <input id="name" type="text" class="validate" required>
                             <label for="name">Nombre</label>
                             </div>
                             
@@ -50,10 +53,17 @@
                             <label for="email">Correo electr&oacute;nico</label>
                             </div>
 
+                            <!-- Mensaje -->
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="messenger" class="materialize-textarea"></textarea>
+                                <label for="messenger">Mensaje</label>
+                            </div>
+
                             <!-- Boton enviar formulario -->
                             <div class="input-field col s6">
-                                <button class="btn waves-effect btn-color" type="submit" name="action">Actualizar
-                                    <i class="material-icons left">update</i>
+                                <button class="btn waves-effect btn-color" type="submit" name="action">Enviar
+                                    <i class="material-icons left">send</i>
                                 </button>
                             </div>
 
