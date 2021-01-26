@@ -8,7 +8,7 @@
 
         <!-- Perfil -->
         <li>
-            <a href="#" class="black-text">
+            <a href="profile" class="black-text">
                 <i class="material-icons">account_circle</i> 
                 Perfil
             </a>

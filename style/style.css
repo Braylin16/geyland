@@ -70,3 +70,27 @@ nav {
 .input-field .prefix.active {
   color: #fa4299 !important; 
 }
+
+/* Colocar foto de perfil dentro de la de portada */
+.header {
+  position: relative;
+}
+
+.cover-pic {
+  object-fit: cover;
+  width: 100%;
+}
+
+.profile-pic {
+  position: absolute;
+  left: 20px;
+  bottom: -100px;
+  height: 200px;
+  width: 200px;
+}
+
+
+/* Cursor pointer al icono coment en las publicaciones */
+#click-comment {
+  cursor: pointer !important;
+}

@@ -65,7 +65,7 @@
                             <a class="btn-floating halfway-fab waves-effect waves-light white">
                             
                                 <!-- Imagen del usuario que publico -->
-                                <img src="images/carla.jpg" alt="carla">
+                                <img src="images/yo.jpg" alt="carla">
 
                             </a>
                             </div>
@@ -75,6 +75,7 @@
                             <div class="divider"></div><br>
 
                             <div class="row">
+
                                 <!-- Like -->
                                 <div class="col s6">
                                     <a href="" class="black-text">
@@ -85,11 +86,30 @@
 
                                 <!-- Comments -->
                                 <div class="col s6">
-                                    <a href="" class="black-text right">
+                                    <span id="click-comment" class="black-text right">
                                         <i class="material-icons left small">comment</i>
                                         <span class="flow-text black-text">2</span>
-                                    </a>
+                                    </span>
                                 </div>
+                            </div>
+
+
+                            <!-- Area de texto para escribir un comentario -->
+                            <div id="view-comment" class="hide row">
+                            <div class="divider"></div>
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                        <i class="material-icons prefix">comment</i>
+                                        <textarea id="comment" class="materialize-textarea"></textarea>
+                                        <label for="comment">Escribe un comentario...</label>
+                                        </div>
+
+                                        <button class="btn waves-effect btn-color right" type="submit" name="action">Comentar
+                                            <i class="material-icons left">send</i>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
 
 
@@ -114,6 +134,8 @@
     
     <!-- Footer -->
     <?php require_once('frontend/footer.php') ?>
+
+    <script src="js/comment.js"></script>
     
 </body>
 </html>
