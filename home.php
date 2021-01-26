@@ -20,6 +20,39 @@
         <section class="container">
             <article class="row section">
 
+            <!-- Textarea para publicar -->
+            <div class="col s12">
+                <div class="col s12 m2 xl2"></div>
+               <div class="col s12 m7 xl6 z-depth-1">
+
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                <!-- <i class="material-icons prefix">photo_camera</i> -->
+                                <textarea id="post" class="materialize-textarea" required></textarea>
+                                <label for="post">Publicar algo...</label>
+                                <span class="helper-text" data-error="wrong" data-success="right">
+
+                                    <div class="file-field">
+                                        <i class="material-icons prefix">photo_camera</i>
+                                        <input type="file">
+                                    </div>
+
+                                </span>
+                                </div>
+                            </div>
+
+                            <!-- Boton de publicar -->
+                            <button class="btn waves-effect btn-color right" type="submit">Publicar
+                                <i class="material-icons left">send</i>
+                            </button>
+                        </form>
+                    </div>
+
+               </div>
+            </div>
+
             <div class="col s2"></div>
 
                 <!-- Card de publicacion -->

@@ -21,6 +21,7 @@
             <article class="section">
 
                 <div class="row">
+                    <div class="col s3 m4 xl5"></div>
                     <div class="col s6 m3 xl2">
                         <div class="card">
                             <div class="card-image">
@@ -94,6 +95,29 @@
                                 </select>
                                 <!-- <label>Fecha de nacimiento</label> -->
                             </div>
+
+                            <p class="pink-text center">Por favor, seleccionar tu sexo</p>
+
+                            <!-- Sexo -->
+                            <div class="input-field col s4 m3 xl3">
+                            <p>
+                                <label>
+                                    <input class="with-gap" name="group1" type="radio"  />
+                                    <span>Hombre</span>
+                                </label>
+                            </p>
+                            </div>
+
+                            <div class="input-field col s4 m3 xl3">
+                            <p>
+                                <label>
+                                    <input class="with-gap" name="group1" type="radio"  />
+                                    <span>Mujer</span>
+                                </label>
+                            </p>
+                            </div>
+
+                            <div class="col s12"></div>
 
                             <!-- Boton enviar form -->
                             <div class="input-field col s6">
