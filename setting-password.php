@@ -32,15 +32,15 @@
                             <!-- pass -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">lock</i>
-                            <input id="name" type="text" class="validate">
-                            <label for="name">Contrase&ntilde;a</label>
+                            <input id="pass" type="text" class="validate">
+                            <label for="pass">Contrase&ntilde;a</label>
                             </div>
 
                             <!-- Repite la pass -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input id="name" type="text" class="validate">
-                            <label for="name">Repite la contrase&ntilde;a</label>
+                            <input id="repit-pass" type="text" class="validate">
+                            <label for="repit-pass">Repite la contrase&ntilde;a</label>
                             </div>
 
                             <!-- Boton enviar formulario -->
@@ -60,10 +60,6 @@
 
     <!-- Footer -->
     <?php require_once('frontend/footer.php') ?>
-
-    <!-- Script -->
-    <script src="materialize/js/materialize.min.js"></script>
-    <script src="js/inicialize.js"></script>
     
 </body>
 </html>

@@ -17,91 +17,70 @@
         <?php require_once('menu/menu.php') ?>
         
         <!-- Content -->
-        <section class="container z-depth-1 white">
+        <section class="container">
             <article class="row section">
 
-                <h1 class="flow-text center-align">Usuarios registrados recientemente</h1>
-                <p class="center-align">
-                    Chatear con personas har&aacute; m&aacute;s interesante <strong class="pink-text">Geyland</strong>
-                </p>
+            <div class="col s2"></div>
 
-                <div class="divider"></div><br>
+                <!-- Card de publicacion -->
+                <div class="row">
+                    <div class="col s12 m7 xl6">
+                        <div class="card">
+                            <div class="card-image">
+                            <img src="images/yo.jpg" alt="publicacion de braylin" class="materialboxed">
+                            <span class="card-title">Braylin Ivan Payano</span>
+                            <a class="btn-floating halfway-fab waves-effect waves-light white">
+                            
+                                <!-- Imagen del usuario que publico -->
+                                <img src="images/carla.jpg" alt="carla">
 
-                <!-- Braylin -->
-                <div class="col s12">
-                    <img src="images/yo.jpg" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Braylin Ivan Payano</strong><br>
-                    <small>Republica Dominicana</small>
+                            </a>
+                            </div>
+                            <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p><br>
 
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
+                            <div class="divider"></div><br>
 
-                <p>
-                    <div class="divider"></div>
-                </p><br><br>
+                            <div class="row">
+                                <!-- Like -->
+                                <div class="col s6">
+                                    <a href="" class="black-text">
+                                        <i class="material-icons left small">favorite_border</i>
+                                        <span class="flow-text black-text">10</span>
+                                    </a>
+                                </div>
 
-                <div class="divider"></div><br>
+                                <!-- Comments -->
+                                <div class="col s6">
+                                    <a href="" class="black-text right">
+                                        <i class="material-icons left small">comment</i>
+                                        <span class="flow-text black-text">2</span>
+                                    </a>
+                                </div>
+                            </div>
 
-                <!-- Usuarios -->
-                <div class="col s12">
-                    <img src="images/user.png" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Jairo Vasquez</strong><br>
-                    <small>Colombia</small>
 
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
+                        </div>
+                    </div>
+                    </div>
 
-                <p>
-                    <div class="divider"></div>
-                </p><br><br>
+                    <!-- Ultimos usuarios registrados -->
+                    <!-- <div class="col s6">
+                        <p class="pink-text flow-text">Ultimos usuarios registrados</p>
+                        <div class="divider"></div>
 
-                <div class="divider"></div><br>
+                        
+                    </div> -->
+                    <!-- Fin ultimos usuarios registrados -->
 
-                <!-- Robert -->
-                <div class="col s12">
-                    <img src="images/robert.jpg" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Robert Smith</strong><br>
-                    <small>Estados Unidos</small>
-
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
-
-                <!-- Carla -->
-                <p>
-                    <div class="divider"></div>
-                </p><br><br>
-
-                <div class="divider"></div><br>
-
-                <div class="col s12">
-                    <img src="images/carla.jpg" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Carla Claker</strong><br>
-                    <small>Reino Unido</small>
-
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
                 </div>
 
             </article>
         </section>
     </main>
+    
     <!-- Footer -->
     <?php require_once('frontend/footer.php') ?>
-
-    <!-- Script -->
-    <script src="materialize/js/materialize.min.js"></script>
-    <script src="js/inicialize.js"></script>
     
 </body>
 </html>

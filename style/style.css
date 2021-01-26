@@ -17,12 +17,31 @@ nav {
   background: -webkit-linear-gradient(right, #a445b2, #fa4299);
 }
 
+.messenger-search {
+  padding: 15px 70px !important;
+}
+
+.input-field input[type=search] {
+  padding: 10px 30px !important;
+}
+
 .img-dropdown {
   margin: 15px 60px;
 }
 
 .messenger-dropdown {
   padding: 0px 70px;
+}
+
+/* label input type search */
+.input-field input[type=search]:focus + label {
+  color: #9c27b0 !important;
+}
+
+/* label underline focus color type search */
+.row .input-field input[type=search]:focus {
+  border-bottom: 1px solid #9c27b0 !important;
+  box-shadow: 0 1px 0 0 #9c27b0 !important;
 }
 
 /* label focus color */

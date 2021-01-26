@@ -104,9 +104,9 @@
 
                             <!-- Boton omitir -->
                             <div class="input-field col s6">
-                                <button class="btn waves-effect red right" type="submit" name="action">Omitir
+                                <a href="<?=$url?>" class="btn waves-effect red right" name="action">Omitir
                                     <i class="material-icons left">skip_next</i>
-                                </button>
+                                </a>
                             </div>
 
                         </div>
@@ -119,10 +119,6 @@
     </main>
     <!-- Footer -->
     <?php require_once('frontend/footer.php') ?>
-
-    <!-- Script -->
-    <script src="materialize/js/materialize.min.js"></script>
-    <script src="js/inicialize.js"></script>
     
 </body>
 </html>

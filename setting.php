@@ -74,10 +74,6 @@
 
     <!-- Footer -->
     <?php require_once('frontend/footer.php') ?>
-
-    <!-- Script -->
-    <script src="materialize/js/materialize.min.js"></script>
-    <script src="js/inicialize.js"></script>
     
 </body>
 </html>

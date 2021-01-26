@@ -60,20 +60,33 @@
                 </a>
 
                 <!-- Titulo -->
-                <a href="/geyland" class="brand-logo">Geyland</a>
+                <a href="<?=$url?>" class="brand-logo">Geyland</a>
                 <ul class="right hide-on-med-and-down">
 
-                <!-- Boton de inicio -->
-                <li>
-                    <a href="<?=$url?>" class="messenger-dropdown">
-                        <i class="material-icons right">home</i>
+                <!-- buscar persona -->
+                <li id="input-search" class="hide">
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="search-header" type="search" placeholder="Buscar personas" class="validate" autocomplete="off">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+
+                <!-- Boton search -->
+                <li id="btn-icon-search">
+                    <a class="messenger-dropdown">
+                        <i class="material-icons right">search</i>
                     </a>
                 </li>
 
-                <!-- Boton de busqueda de personas -->
+                <!-- Boton de inicio -->
                 <li>
-                    <a href="#">
-                        <i class="material-icons right">search</i>
+                    <a href="<?=$url?>">
+                        <i class="material-icons right">home</i>
                     </a>
                 </li>
 

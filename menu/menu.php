@@ -12,6 +12,6 @@
     <li><a href="#!"><i class="material-icons">account_circle</i>Perfil</a></li>
     <li><a href="setting"><i class="material-icons">settings</i>Configuraci&oacute;n</a></li>
     <li><a href="setting-password"><i class="material-icons">lock</i>Editar contrase&ntilde;a</a></li>
-    <li><a href="#!"><i class="material-icons">mail</i>Chat</a></li>
+    <li><a href="chat"><i class="material-icons">mail</i>Chat</a></li>
     <li><a href="#!"><i class="material-icons">search</i>Buscar persona</a></li>
 </ul><!-- Fin menu -->
