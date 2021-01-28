@@ -76,12 +76,15 @@ nav {
   position: relative;
 }
 
+/* Foto de portada */
 .cover-pic {
   object-fit: cover;
   width: 100%;
 }
 
+/* Foto de perfil */
 .profile-pic {
+  object-fit: cover;
   position: absolute;
   left: 20px;
   bottom: -100px;
@@ -93,4 +96,9 @@ nav {
 /* Cursor pointer al icono coment en las publicaciones */
 #click-comment {
   cursor: pointer !important;
+}
+
+/* Hacer que el icono photo sea mas clickeable */
+.file-field {
+  padding: 10px 0px;
 }
