@@ -31,7 +31,7 @@
                                 <div class="input-field col s12">
                                 <!-- <i class="material-icons prefix">photo_camera</i> -->
                                 <textarea id="post" class="materialize-textarea" required></textarea>
-                                <label for="post">Publicar algo...</label>
+                                <label for="post">Dile algo al mundo...</label>
                                 <span class="helper-text" data-error="wrong" data-success="right">
 
                                 <div class="file-field input-field">

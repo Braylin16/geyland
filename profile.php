@@ -28,14 +28,14 @@
 
                             <img src="images/paisaje.jpg" alt="Foto de portada" class="materialboxed cover-pic" height="300" />
 
-                            <a href="#modalportada" role="button" class="btn-floating modal-trigger halfway-fab waves-effect waves-light red"><i class="material-icons">photo_camera</i>
+                            <a href="#option" data-target='option' role="button" class="btn-floating modal-trigger halfway-fab waves-effect waves-light purple"><i class="material-icons">photo_camera</i>
                             </a>
 
                             <img src="images/yo.jpg" alt="Nombre del usuario" class="center-align img-responsive circle profile-pic" height="190">
 
                         </div>
                         
-                        <!-- Dropdaw and name -->
+                        <!-- name -->
                         <div class="row">
                             <div class="col s6 m8 xl9 right">
                                 <span class="flow-text pink-text">Braylin Ivan Payano</span><br>
@@ -66,6 +66,9 @@
 
                     </div>
                 </div>
+
+                <!-- Modal -->
+                <?php require_once('modal/option-profile.php') ?>
 
             </article>
         </section>
@@ -177,7 +180,6 @@
 
     <!-- Script Jquery -->
     <script src="jquery/tabs.js"></script>
-    <script src="js/comment.js"></script>
 
 </body>
 </html>
