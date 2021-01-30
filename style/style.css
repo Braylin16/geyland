@@ -33,6 +33,11 @@ nav {
   padding: 0px 70px;
 }
 
+/* Imagen que se adapta */
+.img-adaptable {
+  object-fit: cover;
+}
+
 /* label input type search */
 .input-field input[type=search]:focus + label {
   color: #9c27b0 !important;

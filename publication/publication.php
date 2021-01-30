@@ -17,6 +17,7 @@
 
             <div class="divider"></div><br>
 
+            <!-- Reacciones -->
             <div class="row">
 
                 <!-- Like -->
