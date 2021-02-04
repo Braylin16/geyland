@@ -180,3 +180,11 @@ form .btn input[type="submit"]{
   font-weight: 500;
   cursor: pointer;
 }
+
+.red-text {
+  color: #d50000;
+}
+
+.green-text {
+  color: #1b5e20;
+}

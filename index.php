@@ -1,3 +1,11 @@
+<?php session_start();
+require_once('connection/connection.php');
+require_once('url/url.php');
+require_once('backend/login.php');
+require_once('backend/register.php');
+require_once('functions/functions.php');
+notLogout();
+?>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
@@ -25,57 +33,11 @@
 
     <div class="form-inner">
 
-      <form action="#" class="login">
+      <!-- Form login -->
+      <?php require_once('access/login.php') ?>
 
-          <div class="field">
-            <input type="text" placeholder="Correo electr&oacute;nico" required>
-          </div>
-
-          <div class="field">
-              <input type="password" placeholder="Contraseña" required>
-          </div>
-
-          <div class="pass-link">
-            <a href="#">¿Se te olvidó tu contraseña?</a>
-          </div>
-
-          <div class="field btn">
-            <div class="btn-layer"></div>
-            <input type="submit" value="Entrar">
-          </div>
-
-
-          <div class="signup-link">
-            ¿No eres miembro?  <a href="">Regístrate ahora</a>
-          </div>
-
-      </form>
-
-
-      <form action="#" class="signup">
-        <div class="field">
-          <input type="text" placeholder="Nombre" required>
-        </div>
-
-        <div class="field">
-          <input type="password" placeholder="Apellidos" required>
-        </div>
-
-        <div class="field">
-          <input type="password" placeholder="Correo electr&oacute;nico" required>
-        </div>
-
-        <div class="field">
-          <input type="text" placeholder="Contraseña" required>
-        </div>
-
-        <div class="field btn">
-          <div class="btn-layer"></div>
-          <input type="submit" value="Registrarse">
-        </div>
-
-      </form>
-
+      <!-- Form register -->
+      <?php require_once('access/register.php') ?>
 
     </div>
   </div>

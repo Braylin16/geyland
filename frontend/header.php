@@ -34,7 +34,7 @@
 
         <!-- Cerrar sesion -->
         <li>
-            <a href="#" class="black-text">
+            <a href="./logout" class="black-text">
                 <i class="material-icons">power_settings_new</i> 
                 Cerrar Sesi&oacute;n
             </a>

@@ -28,7 +28,7 @@
 
                             <img src="images/paisaje.jpg" alt="Foto de portada" class="materialboxed cover-pic" height="300" />
 
-                            <a href="#modalportada" role="button" class="btn-floating modal-trigger halfway-fab waves-effect waves-light red"><i class="material-icons">photo_camera</i>
+                            <a href="#option" role="button" class="btn-floating modal-trigger halfway-fab waves-effect waves-light red"><i class="material-icons">photo_camera</i>
                             </a>
 
                             <img src="images/yo.jpg" alt="Nombre del usuario" class="center-align img-responsive circle profile-pic" height="190">
@@ -208,6 +208,8 @@
                         </div>
                     </div>
                 </div>
+
+                <?php require_once('modal/option-profile.php') ?>
 
             </article>
         </section>
