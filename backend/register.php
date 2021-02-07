@@ -118,6 +118,7 @@ if(isset($_POST['register'])){
          $errors .= '* Este correo electrónico ya existe, prueba otro <br />';
      }
 
+     // Si no hay errores, registramos al usuario
      if($errors == ''){
         $statement = $conexion->prepare('INSERT INTO users (id_user, name, surname, nick, email, password, description, photo_profile, photo_cover, day, month, year, orientation, ip_user, browser_user, roll, create_at_user) VALUES(
             null, :name, :surname, null, :email, :pass, null, null, null, null, null, null, null, :ip, :browser, :roll, NOW())'

@@ -13,6 +13,11 @@
             </a>
             </div>
             <div class="card-content">
+            <p class="grey-text">
+                <i class="material-icons left">more_vert</i> 
+                Publicado el 07 de Febrero de 2021
+            </p><br>
+            
             <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p><br>
 
             <div class="divider"></div><br>

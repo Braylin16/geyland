@@ -1,7 +1,8 @@
 <?php session_start();
 require_once('connection/connection.php');
 require_once('functions/functions.php');
-$_SESSION['email'];
+$email = $_SESSION['email'];
+require_once('user/user.php');
 logout();
 ?>
 <!DOCTYPE html>
@@ -13,6 +14,7 @@ logout();
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />
+    <script src="jquery/jquery.min.js"></script>
 </head>
 <body class="grey lighten-5">
 
@@ -32,18 +34,17 @@ logout();
                <div class="col s12 m7 xl6 z-depth-1">
 
                     <div class="row">
-                        <form class="col s12">
+                        <form id="form" method="POST" class="col s12" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="input-field col s12">
-                                <!-- <i class="material-icons prefix">photo_camera</i> -->
-                                <textarea id="post" class="materialize-textarea" required></textarea>
+                                <textarea id="post" name="post" class="materialize-textarea" required></textarea>
                                 <label for="post">Dile algo al mundo...</label>
                                 <span class="helper-text" data-error="wrong" data-success="right">
 
                                 <div class="file-field input-field">
                                     <span class="file-path-wrapper">
                                         <i class="material-icons prefix">photo_camera</i>
-                                        <input type="file">
+                                        <input id="img" name="img" type="file">
                                     </span>
                                 </div>
 
@@ -51,10 +52,14 @@ logout();
                                 </div>
                             </div>
 
+                            <div id="respuesta"></div>
+
                             <!-- Boton de publicar -->
-                            <button class="btn waves-effect btn-color right" type="submit">Publicar
+                            <button class="btn waves-effect btn-color right" id="submit" type="button" name="public">Publicar
                                 <i class="material-icons left">send</i>
                             </button>
+
+                            <p id="respuesta" class="red-text"></p>
                         </form>
                     </div>
 
@@ -73,7 +78,7 @@ logout();
             </div> -->
             <!-- Fin ultimos usuarios registrados -->
 
-                </div>
+            </div>
 
             </article>
         </section>
@@ -83,6 +88,7 @@ logout();
     <?php require_once('frontend/footer.php') ?>
 
     <script src="js/comment.js"></script>
+    <script src="js/publication.js"></script>
     
 </body>
 </html>
