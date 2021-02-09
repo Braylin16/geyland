@@ -107,3 +107,8 @@ nav {
 .file-field {
   padding: 10px 0px;
 }
+
+/* Hacer que el div que centra las publicaciones llegue hasta abajo */
+.publication-div {
+  min-height: 300rem !important;
+}

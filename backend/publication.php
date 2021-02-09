@@ -1,5 +1,7 @@
 <?php session_start();
 
+error_reporting(0);
+
 require_once('../connection/connection.php');
 $email = $_SESSION['email'];
 require_once('../user/user.php');
@@ -14,10 +16,15 @@ $browser = $_SERVER['HTTP_USER_AGENT'];
 $errors = '';
 $maxSize = 2097152; // 2 MB
 
-if(isset($_POST['public'])){
+if(isset($_POST['public']) || isset($_FILES['img'])){
 
     $post = $_POST['public'];
     $photo = $_FILES['img'];
+
+    if(empty($post) and empty($photo)){
+        $errors = 'Intenta publicar algo';
+        echo 'Ha ocurrido un error';
+    }
 
     // Obtenemos el nombre y la extension de la img
     $photoName = $photo['name'];
@@ -30,7 +37,8 @@ if(isset($_POST['public'])){
 
         // Verificar el peso de la imagen
         if($photo['size'] >= $maxSize) {
-            $errors = 'La imagen pesa mucho, por favor solo 2MB';
+            $errors .= 'La imagen pesa mucho, por favor solo 2MB';
+            echo 'La imagen pesa mucho, por favor solo 2MB';
         }
 
         if(!is_dir('../photo')){
@@ -41,7 +49,8 @@ if(isset($_POST['public'])){
         move_uploaded_file($photo['tmp_name'], '../photo/'.$photoName);
 
     }else {
-        echo 'El tipo de imagen no es soportado';
+        $errors .= "Lo siento, no aceptamos esta extension $photoName";
+        echo "Lo siento, no aceptamos esta extension $photoName";
     }
 
    // Limpiar

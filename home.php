@@ -15,6 +15,7 @@ logout();
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />
     <script src="jquery/jquery.min.js"></script>
+    <script src="js/select-publication.js"></script>
 </head>
 <body class="grey lighten-5">
 
@@ -52,7 +53,7 @@ logout();
                                 </div>
                             </div>
 
-                            <div id="respuesta"></div>
+                            <div id="respuesta" class="red-text"></div>
 
                             <!-- Boton de publicar -->
                             <button class="btn waves-effect btn-color right" id="submit" type="button" name="public">Publicar
@@ -66,17 +67,8 @@ logout();
                </div>
             </div>
 
-            <div class="col s2"></div>
+            <div class="col s2 publication-div"></div>
             <?php require_once('publication/publication.php') ?>
-
-            <!-- Ultimos usuarios registrados -->
-            <!-- <div class="col s6">
-                <p class="pink-text flow-text">Ultimos usuarios registrados</p>
-                <div class="divider"></div>
-
-                
-            </div> -->
-            <!-- Fin ultimos usuarios registrados -->
 
             </div>
 
@@ -87,6 +79,7 @@ logout();
     <!-- Footer -->
     <?php require_once('frontend/footer.php') ?>
 
+    <!-- Script -->
     <script src="js/comment.js"></script>
     <script src="js/publication.js"></script>
     

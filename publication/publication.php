@@ -1,24 +1,67 @@
+<?php
+// Conexion a la base de datos
+try{
+  $conexion = new PDO('mysql:host=localhost;dbname=geyland', 'root', '');
+}catch(PDOExeption $e){
+  echo "Lo sentimos, ha ocurrido un error nuestros ingenieros trabajan para solucionarlo: " . $e->getMessage();
+  die();
+} 
+
+// Formatear fecha
+function fecha($fecha){
+    $times = strtotime($fecha);
+    $meses = ['Enero','Febrero','Marzo',
+            'Abril','Mayo','Junio','Julio','Agosto',
+            'Septiembre','Octubre','Noviembre','Diciembre'];
+
+    $dia = date('d', $times);
+    $mes = date('m', $times) - 1;
+    $anio = date('Y', $times);
+
+    $fecha = "$dia de " . $meses[$mes] . " del $anio";
+    return $fecha;
+
+}
+
+ // sacar todo lo que coicida con la busqueda
+ $stetament = $conexion->prepare(
+    "SELECT users.id_user, users.name, users.surname, users.photo_profile, publication.id_pub, publication.id_user_pub, publication.messeger_pub, publication.photo_pub, publication.create_at_pub FROM publication INNER JOIN users WHERE users.id_user = publication.id_user_pub ORDER BY publication.id_pub DESC LIMIT 7"
+);
+
+$stetament->execute(array());
+$result = $stetament->fetchAll();
+
+?>
+<?php foreach($result as $post) : ?>
+<?php $fecha = $post['photo_pub'] ?>
 <!-- Card de publicacion -->
-<div class="row">
+<div id="publication" class="row">
     <div class="col s12 m7 xl6">
         <div class="card">
-            <div class="card-image">
-            <img src="images/yo.jpg" alt="publicacion de braylin" class="materialboxed">
-            <span class="card-title">Braylin Ivan Payano</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light white">
-            
-                <!-- Imagen del usuario que publico -->
-                <img src="images/yo.jpg" alt="carla">
 
-            </a>
+            <div>
+                <br>
+                <img src="images/yo.jpg" alt="carla" class="col s2 m2 xl2 img-adaptable circle">
+                <span class="flow-text pink-text"><?php echo $post['name'].' '.$post['surname'] ?></span>
+                <span class="right">
+                    <i class="material-icons left">more_vert</i> 
+                </span><br>
+                <small class="grey-text">
+                    Publicado el <?=fecha($post['create_at_pub'])?>
+                </small><br><br>
+            </div>
+
+            
+            <div class="card-image">
+            <?php if($post['photo_pub'] != false): ?>
+                <img src="./photo/<?php echo $post['photo_pub'] ?>" alt="Publicaci&oacute;n de <?php echo $post['name'].' '.$post['surname'] ?>" />
+                <span class="card-title"><?php echo $post['name'].' '.$post['surname'] ?></span>
+            <?php endif ?>
+
             </div>
             <div class="card-content">
-            <p class="grey-text">
-                <i class="material-icons left">more_vert</i> 
-                Publicado el 07 de Febrero de 2021
-            </p><br>
             
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p><br>
+            <p><?php echo $post['messeger_pub'] ?></p><br>
 
             <div class="divider"></div><br>
 
@@ -65,3 +108,4 @@
         </div>
     </div>
 </div>
+<?php endforeach ?>
