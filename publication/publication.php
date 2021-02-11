@@ -61,9 +61,11 @@ $result = $stetament->fetchAll();
             </div>
             <div class="card-content">
             
-            <p><?php echo $post['messeger_pub'] ?></p><br>
+            <?php if($post['messeger_pub'] != false) : ?>
+                <p><?php echo $post['messeger_pub'] ?></p><br>
 
-            <div class="divider"></div><br>
+                <div class="divider"></div><br>
+            <?php endif ?>
 
             <!-- Reacciones -->
             <div class="row">

@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(0);
 $errors = '';
 
 if(isset($_POST['submit'])){
@@ -33,11 +34,11 @@ if(isset($_POST['submit'])){
     $yearNU = is_numeric($year);
 
     if($dayNU != true){
-        $errors = 'Hubo un error en tu d&iacute;a de nacimiento';
+        $errors = '* Hubo un error en tu d&iacute;a de nacimiento <br />';
     }
 
     if($yearNU != true){
-        $errors .= 'Hubo un error en tu a&ntilde;o de nacimiento';
+        $errors .= '* Hubo un error en tu a&ntilde;o de nacimiento <br />';
     }
 
     // Restringir numero de carateres en el nick y description
@@ -45,11 +46,11 @@ if(isset($_POST['submit'])){
     $descLen = strlen($description);
 
     if($nickLen >= 36){
-        $errors .= 'Has superado el limite de 35 carateres para tu apodo';
+        $errors .= '* Has superado el limite de 35 carateres para tu apodo <br />';
     }
 
     if($descLen >= 601){
-        $errors .= 'Has superado el limite de 600 carateres para la descripci&oacute;n';
+        $errors .= '* Has superado el limite de 600 carateres para la descripci&oacute;n <br />';
     }
 
     // Una vez pasado este punto, entonces actualizamos

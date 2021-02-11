@@ -148,7 +148,7 @@ logout();
 
                             <!-- Boton omitir -->
                             <div class="input-field col s6">
-                                <a href="<?=$url?>" class="btn waves-effect red right">Omitir
+                                <a href="photo-profile" class="btn waves-effect red right">Omitir
                                     <i class="material-icons left">skip_next</i>
                                 </a>
                             </div>
@@ -156,6 +156,9 @@ logout();
                         </div>
                     </form>
                 </div>
+
+                <div class="divider"></div>
+                <p class="paso">Paso 1/3</p>
 
                 <?php if($errors) : ?>
                     <p class="red-text"><?=$errors?></p>
