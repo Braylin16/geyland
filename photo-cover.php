@@ -4,6 +4,14 @@ require_once('functions/functions.php');
 $email = $_SESSION['email'];
 require_once('user/user.php');
 logout();
+
+// Por si nos llega error
+if(isset($_GET['error'])){
+
+    $error = $_GET['error'];
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -49,6 +57,9 @@ logout();
                 </div>
             </div>
 
+            <?php if(isset($error)) : ?>
+                <p class="red-text"><?=$error?></p>
+            <?php endif ?>
             <div class="divider"></div>
             <p>Paso 3/3</p>
 

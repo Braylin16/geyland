@@ -1,3 +1,10 @@
+<?php session_start();
+require_once('connection/connection.php');
+require_once('functions/functions.php');
+$email = $_SESSION['email'];
+require_once('user/user.php');
+logout();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,20 +33,22 @@
 
                         <div class="header">
 
-                            <img src="images/paisaje.jpg" alt="Foto de portada" class="materialboxed cover-pic" height="300" />
+                            <!-- Photo Cover -->
+                            <img src="img-cover/<?=$photo_cover?>" alt="Foto de portada" class="materialboxed cover-pic" height="300" />
 
                             <a href="#option" role="button" class="btn-floating modal-trigger halfway-fab waves-effect waves-light red"><i class="material-icons">photo_camera</i>
                             </a>
 
-                            <img src="images/yo.jpg" alt="Nombre del usuario" class="center-align img-responsive circle profile-pic" height="190">
+                            <!-- Photo Profile -->
+                            <img src="img-profile/<?=$foto_profile?>" alt="<?=$name.' '.$surname?>" class="center-align img-responsive circle profile-pic" height="190">
 
                         </div>
                         
                         <!-- Dropdaw and name -->
                         <div class="row">
                             <div class="col s6 m8 xl9 right">
-                                <span class="flow-text pink-text">Braylin Ivan Payano</span><br>
-                                <span>(Capullito)</span>
+                                <span class="flow-text pink-text"><?=$name.' '.$surname?></span><br>
+                                <span>(<?=$nick?>)</span>
                             </div>
                         </div>
 
@@ -61,7 +70,7 @@
 
                         <!-- Descripcion -->
                         <div class="col s12 m6 xl6">
-                            <p>Bienvenido a mi perfil, aca encontraras todo lo que yo publico en mi muro de geyland, no olvides dejarme un like hermano.</p>
+                            <p><?=$description?></p>
                         </div>
 
                     </div>

@@ -7,6 +7,7 @@ while ($row = $stmt->fetch()) {
     $id_user = $row['id_user'];
     $name = $row['name'];
     $surname = $row['surname'];
+    $nick = $row['nick'];
     $email = $row['email'];
     $description = $row['description'];
     $foto_profile = $row['photo_profile'];

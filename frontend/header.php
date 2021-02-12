@@ -1,5 +1,6 @@
 <!-- Requerimos las url -->
 <?php require_once('./url/url.php') ?>
+<?php require_once('./user/user.php') ?>
 
 <!-- Header -->
 <header>
