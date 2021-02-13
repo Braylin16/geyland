@@ -1,9 +1,17 @@
+<?php session_start();
+require_once('connection/connection.php');
+require_once('functions/functions.php');
+$email = $_SESSION['email'];
+require_once('user/user.php');
+require_once('backend/setting-password.php');
+logout();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geyland</title>
+    <title>Cambiar contrase&ntilde;a | Geyland</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />
@@ -22,30 +30,45 @@
 
                 <h1 class="flow-text center-align pink-text">Cambiar contrase&ntilde;a</h1>
 
+                <?php if(isset($errors)) : ?>
+                    <p class="red white-text center flow-text"><?=$errors?></p>
+                <?php endif ?>
+
+                <?php if(isset($success)) : ?>
+                    <p class="green white-text center flow-text"><?=$success?></p>
+                <?php endif ?>
+
                 <div class="divider"></div><br>
 
                 <!-- Form -->
                 <div class="row">
-                    <form class="col s12">
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="col s12">
                         <div class="row">
 
                             <!-- pass -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">lock</i>
-                            <input id="pass" type="text" class="validate">
-                            <label for="pass">Contrase&ntilde;a</label>
+                            <input id="pass-actual" type="password" class="validate" name="actual" />
+                            <label for="pass-actual">Contrase&ntilde;a actual</label>
+                            </div>
+
+                            <!-- pass -->
+                            <div class="input-field col s12">
+                            <i class="material-icons prefix">lock_open</i>
+                            <input id="pass" type="password" class="validate" name="nueva" />
+                            <label for="pass">Nueva contrase&ntilde;a</label>
                             </div>
 
                             <!-- Repite la pass -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input id="repit-pass" type="text" class="validate">
+                            <input id="repit-pass" type="password" class="validate" name="repit" />
                             <label for="repit-pass">Repite la contrase&ntilde;a</label>
                             </div>
 
                             <!-- Boton enviar formulario -->
                             <div class="input-field col s12">
-                                <button class="btn waves-effect btn-color" type="submit" name="action">Cambiar Contrase&ntilde;a
+                                <button class="btn waves-effect btn-color" type="submit" name="submit">Cambiar Contrase&ntilde;a
                                     <i class="material-icons left">update</i>
                                 </button>
                             </div>

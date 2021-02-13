@@ -3,14 +3,50 @@ require_once('connection/connection.php');
 require_once('functions/functions.php');
 $email = $_SESSION['email'];
 require_once('user/user.php');
+require('url/url.php');
 logout();
+
+if(isset($_GET['user'])){
+
+    $user = $_GET['user'];
+    $user = (int)$user;
+
+}else{
+    header("Location: $url");
+}
+
+// Sacar todos los datos cuando el user sea el propietario del perfil
+$stmt = $conexion->query("SELECT * FROM users WHERE id_user = $user");
+$stmt->execute(['email' => $email]);
+while ($row = $stmt->fetch()) {
+    $id_user = $row['id_user'];
+    $name = $row['name'];
+    $surname = $row['surname'];
+    $nick = $row['nick'];
+    $email = $row['email'];
+    $description = $row['description'];
+    $foto_profile = $row['photo_profile'];
+    $photo_cover = $row['photo_cover'];
+    $orientation = $row['orientation'];
+    $roll = $row['roll'];
+    $day = $row['day'];
+    $month = $row['month'];
+    $year = $row['year'];
+    $create_at = $row['create_at_user'];
+
+    $id_user = (int)$id_user;
+
+    // Obtener edad
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geyland</title>
+    <title><?=$name.' '.$surname?> | Geyland</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />
@@ -64,7 +100,7 @@ logout();
                         <div class="col s12">
                             <p class="pink-text">
                                 <i class="purple-text material-icons left">flag</i>
-                                Republica Dominicana &#8226; 22 a&ntilde;os
+                                Republica Dominicana &#8226; <?=$year?> a&ntilde;os
                             </p>
                         </div>
 
@@ -85,138 +121,89 @@ logout();
                 <div class="row">
                     <div class="col s12">
                         <ul class="tabs">
-                            <li class="tab col s4"><a class="active black-text" href="#test1">Publicaciones</a></li>
-                            <li class="tab col s4"><a class="black-text" href="#test2">Fotos</a></li>
-                            <li class="tab col s4"><a class="black-text" href="#test4">Me gustas</a></li>
+                            <li class="tab col s12"><a class="active black-text center" href="#test1">Publicaciones</a></li>
                         </ul>
                     </div>
 
-                    <!-- Publicaciones -->
-                    <div id="test1" class="col s12">
-                    <div class="col s12 m2 xl2"></div>
-                        <div class="row">
-                            <div class="col s12 m7">
-                            <div class="card">
-                                <div class="card-image">
-                                <img src="images/yo.jpg">
-                                <span class="card-title">Braylin Ivan Payano</span>
-                                </div>
-                                <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                                </div>
-                                <div class="card-action">
-                                
-                                <!-- Reacciones -->
-                                <div class="row">
-
-                                  <!-- Like -->
-                                  <div class="col s6">
-                                      <a href="" class="black-text">
-                                          <i class="material-icons left small">favorite_border</i>
-                                          <span class="flow-text black-text">10</span>
-                                      </a>
-                                  </div>
-
-                                  <!-- Comments -->
-                                  <div class="col s6">
-                                      <span id="click-comment" class="black-text right">
-                                          <i class="material-icons left small">comment</i>
-                                          <span class="flow-text black-text">2</span>
-                                      </span>
-                                  </div>
-                                </div>
-                                
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Fotos -->
-                    <div id="test2" class="col s12">
-                    <div class="col s12 m2 xl2"></div>
-                        <div class="row">
-                          <div class="col s12 m7">
-                            <div class="card">
-                              <div class="card-image">
-                                <img src="images/yo.jpg">
-                                <span class="card-title">Card Title</span>
-                              </div>
-                              <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                              </div>
-                              <div class="card-action">
-                                
-                                <!-- Reacciones -->
-                                <div class="row">
-
-                                  <!-- Like -->
-                                  <div class="col s6">
-                                      <a href="" class="black-text">
-                                          <i class="material-icons left small">favorite_border</i>
-                                          <span class="flow-text black-text">10</span>
-                                      </a>
-                                  </div>
-
-                                  <!-- Comments -->
-                                  <div class="col s6">
-                                      <span id="click-comment" class="black-text right">
-                                          <i class="material-icons left small">comment</i>
-                                          <span class="flow-text black-text">2</span>
-                                      </span>
-                                  </div>
-                                </div>
-
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-
-                    <!-- Me gustas -->
-                    <div id="test4" class="col s12">
-                    <div class="col s12 m2 xl2"></div>
-                        <div class="row">
-                          <div class="col s12 m7">
-                            <div class="card">
-                              <div class="card-image">
-                                <img src="images/yo.jpg">
-                                <span class="card-title">Card Title</span>
-                              </div>
-                              <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                              </div>
-                              <div class="card-action">
-                                
-                                <!-- Reacciones -->
-                                <div class="row">
-
-                                  <!-- Like -->
-                                  <div class="col s6">
-                                      <a href="" class="black-text">
-                                          <i class="material-icons left small">favorite_border</i>
-                                          <span class="flow-text black-text">10</span>
-                                      </a>
-                                  </div>
-
-                                  <!-- Comments -->
-                                  <div class="col s6">
-                                      <span id="click-comment" class="black-text right">
-                                          <i class="material-icons left small">comment</i>
-                                          <span class="flow-text black-text">2</span>
-                                      </span>
-                                  </div>
-                                </div>
-
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
+                    <?php require_once('backend/profile-publications.php') ?>
+                    <?php foreach($result as $post) : ?>
+                       <!-- Card de publicacion -->
+                       <div id="test1" class="col s12">
+                           <div class="col s12 m7 xl6">
+                               <div class="card">
+                       
+                                   <div>
+                                       <br>
+                                       <img src="img-profile/<?=$post['photo_profile']?>" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 xl2 img-adaptable circle" height="50">
+                                       <span class="flow-text pink-text"><?php echo $post['name'].' '.$post['surname'] ?></span>
+                                       <span class="right">
+                                           <i class="material-icons left">more_vert</i> 
+                                       </span><br>
+                                       <small class="grey-text">
+                                           Publicado el <?=form_fecha($post['create_at_pub'])?>
+                                       </small><br><br>
+                                   </div>
+                       
+                                   
+                                   <div class="card-image">
+                                   <?php if($post['photo_pub'] != false): ?>
+                                       <img src="./photo/<?php echo $post['photo_pub'] ?>" alt="Publicaci&oacute;n de <?php echo $post['name'].' '.$post['surname'] ?>" />
+                                       <span class="card-title"><?php echo $post['name'].' '.$post['surname'] ?></span>
+                                   <?php endif ?>
+                       
+                                   </div>
+                                   <div class="card-content">
+                                   
+                                   <?php if($post['messeger_pub'] != false) : ?>
+                                       <p><?php echo $post['messeger_pub'] ?></p><br>
+                       
+                                       <div class="divider"></div><br>
+                                   <?php endif ?>
+                       
+                                   <!-- Reacciones -->
+                                   <div class="row">
+                       
+                                       <!-- Like -->
+                                       <div class="col s6">
+                                           <a href="" class="black-text">
+                                               <i class="material-icons left small">favorite_border</i>
+                                               <span class="flow-text black-text">10</span>
+                                           </a>
+                                       </div>
+                       
+                                       <!-- Comments -->
+                                       <div class="col s6">
+                                           <span id="click-comment" class="black-text right">
+                                               <i class="material-icons left small">comment</i>
+                                               <span class="flow-text black-text">2</span>
+                                           </span>
+                                       </div>
+                                   </div>
+                       
+                       
+                                   <!-- Area de texto para escribir un comentario -->
+                                   <div id="view-comment" class="hide row">
+                                   <div class="divider"></div>
+                                       <form class="col s12">
+                                           <div class="row">
+                                               <div class="input-field col s12">
+                                               <i class="material-icons prefix">comment</i>
+                                               <textarea id="comment" class="materialize-textarea"></textarea>
+                                               <label for="comment">Escribe un comentario...</label>
+                                               </div>
+                       
+                                               <button class="btn waves-effect btn-color right" type="submit" name="action">Comentar
+                                                   <i class="material-icons left">send</i>
+                                               </button>
+                                           </div>
+                                       </form>
+                                   </div>
+                       
+                       
+                               </div>
+                           </div>
+                       </div>
+                    <?php endforeach ?>
 
                 <?php require_once('modal/option-profile.php') ?>
 

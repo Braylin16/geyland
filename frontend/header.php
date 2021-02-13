@@ -9,7 +9,7 @@
 
         <!-- Perfil -->
         <li>
-            <a href="profile" class="black-text">
+            <a href="profile?user=<?=$id?>" class="black-text">
                 <i class="material-icons">account_circle</i> 
                 Perfil
             </a>

@@ -1,9 +1,17 @@
+<?php session_start();
+require_once('connection/connection.php');
+require_once('functions/functions.php');
+$email = $_SESSION['email'];
+require_once('user/user.php');
+require_once('backend/setting.php');
+logout();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geyland</title>
+    <title>Geyland | Actualizar informaci&oacute;n</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />
@@ -22,109 +30,59 @@
 
                 <h1 class="flow-text center-align pink-text">Editar informaci&oacute;n</h1>
 
+                <?php if(isset($errors)) : ?>
+                    <p class="red flow-text center white-text"><?=$errors?></p>
+                <?php endif ?>
+
+                <?php if(isset($success)) : ?>
+                    <p class="green flow-text center white-text"><?=$success?></p>
+                <?php endif ?>
+
                 <div class="divider"></div><br>
 
                 <!-- Form -->
                 <div class="row">
-                    <form class="col s12">
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="col s12">
                         <div class="row">
 
                             <!-- Nombre -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="name" type="text" class="validate">
+                            <input id="name" name="name" type="text" class="validate" value="<?=$name?>" />
                             <label for="name">Nombre</label>
                             </div>
                             
                             <!-- Apellido -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">account_box</i>
-                            <input id="surname" type="tel" class="validate">
+                            <input id="surname" name="surname" type="text" class="validate" value="<?=$surname?>" />
                             <label for="surname">Apellidos</label>
                             </div>
 
                             <!-- Correo electronico -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">mail</i>
-                            <input id="email" type="tel" class="validate">
+                            <input id="email" name="email" type="email" class="validate" value="<?=$email?>" />
                             <label for="email">Correo electr&oacute;nico</label>
                             </div>
 
                             <!-- Correo apodo -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">person</i>
-                            <input id="nick" type="tel" class="validate">
+                            <input id="nick" name="nick" type="text" class="validate" value="<?=$nick?>" />
                             <label for="nick">Apodo</label>
                             </div>
 
                             <!-- Descripcion breve sobre ti -->
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">description</i>
-                                <textarea id="description" class="materialize-textarea"></textarea>
+                                <textarea id="description" name="description" class="materialize-textarea"><?=$description?></textarea>
                                 <label for="description">Descripci&oacute;n breve sobre t&iacute;</label>
                             </div>
 
-                            <div class="input-field col s12">
-                                <div class="divider"></div>
-                            </div>
-
-                            <!-- Fecha de nacimiento, dia -->
-                            <div class="input-field col s12 m4 xl4">
-                                <select>
-                                <option value="" disabled selected>D&iacute;a de nacimiento</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                </select>
-                                <label>Fecha de nacimiento</label>
-                            </div>
-
-                            <!-- Fecha de nacimiento, mes -->
-                            <div class="input-field col s12 m4 xl4">
-                                <select>
-                                <option value="" disabled selected>Mes de nacimiento</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                </select>
-                                <!-- <label>Fecha de nacimiento</label> -->
-                            </div>
-
-                            <!-- Fecha de nacimiento, year -->
-                            <div class="input-field col s12 m4 xl4">
-                                <select>
-                                <option value="" disabled selected>A&ntilde;o de nacimiento</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                </select>
-                                <!-- <label>Fecha de nacimiento</label> -->
-                            </div>
-
-                            <!-- Sexo -->
-                            <div class="input-field col s4 m3 xl3">
-                            <p>
-                                <label>
-                                    <input class="with-gap" name="group1" type="radio"  />
-                                    <span>Hombre</span>
-                                </label>
-                            </p>
-                            </div>
-
-                            <div class="input-field col s4 m3 xl3">
-                            <p>
-                                <label>
-                                    <input class="with-gap" name="group1" type="radio"  />
-                                    <span>Mujer</span>
-                                </label>
-                            </p>
-                            </div>
-
-                            <div class="col s12"></div>
-
                             <!-- Boton enviar formulario -->
                             <div class="input-field col s6">
-                                <button class="btn waves-effect btn-color" type="submit" name="action">Actualizar
+                                <button class="btn waves-effect btn-color" type="submit" name="submit">Actualizar
                                     <i class="material-icons left">update</i>
                                 </button>
                             </div>
