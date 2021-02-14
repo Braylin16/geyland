@@ -70,13 +70,23 @@ while ($row = $stmt->fetch()) {
                         <div class="header">
 
                             <!-- Photo Cover -->
-                            <img src="img-cover/<?=$photo_cover?>" alt="Foto de portada" class="materialboxed cover-pic" height="300" />
+                            <?php if($photo_cover != false) : ?>
+                                <img src="img-cover/<?=$photo_cover?>" alt="Foto de portada" class="materialboxed cover-pic" height="300" />
+                            <?php else : ?>
+                                <img src="images/cover.jpg" alt="Foto de portada" class="materialboxed cover-pic" height="300" />
+                            <?php endif ?>
 
-                            <a href="#option" role="button" class="btn-floating modal-trigger halfway-fab waves-effect waves-light red"><i class="material-icons">photo_camera</i>
-                            </a>
+                            <?php if($id === $id_user) : ?>
+                                <a href="#option" role="button" class="btn-floating modal-trigger halfway-fab waves-effect waves-light red"><i class="material-icons">photo_camera</i>
+                                </a>
+                            <?php endif ?>
 
                             <!-- Photo Profile -->
-                            <img src="img-profile/<?=$foto_profile?>" alt="<?=$name.' '.$surname?>" class="center-align img-responsive circle profile-pic" height="190">
+                            <?php if($foto_profile != false) : ?>
+                                <img src="img-profile/<?=$foto_profile?>" alt="<?=$name.' '.$surname?>" class="center-align img-responsive circle profile-pic" height="190">
+                            <?php else : ?>
+                                <img src="images/user.png" alt="<?=$name.' '.$surname?>" class="center-align img-responsive circle profile-pic" height="190">
+                            <?php endif ?>
 
                         </div>
                         
@@ -84,7 +94,9 @@ while ($row = $stmt->fetch()) {
                         <div class="row">
                             <div class="col s6 m8 xl9 right">
                                 <span class="flow-text pink-text"><?=$name.' '.$surname?></span><br>
-                                <span>(<?=$nick?>)</span>
+                                <?php if($nick != false) : ?>
+                                    <span>(<?=$nick?>)</span>
+                                <?php endif ?>
                             </div>
                         </div>
 
@@ -100,7 +112,7 @@ while ($row = $stmt->fetch()) {
                         <div class="col s12">
                             <p class="pink-text">
                                 <i class="purple-text material-icons left">flag</i>
-                                Republica Dominicana &#8226; <?=$year?> a&ntilde;os
+                                Republica Dominicana &#8226; <?php if($year != false and $day != false and $month != false) { echo $month.' '.$day.' de '.$year; } ?>
                             </p>
                         </div>
 
@@ -125,85 +137,7 @@ while ($row = $stmt->fetch()) {
                         </ul>
                     </div>
 
-                    <?php require_once('backend/profile-publications.php') ?>
-                    <?php foreach($result as $post) : ?>
-                       <!-- Card de publicacion -->
-                       <div id="test1" class="col s12">
-                           <div class="col s12 m7 xl6">
-                               <div class="card">
-                       
-                                   <div>
-                                       <br>
-                                       <img src="img-profile/<?=$post['photo_profile']?>" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 xl2 img-adaptable circle" height="50">
-                                       <span class="flow-text pink-text"><?php echo $post['name'].' '.$post['surname'] ?></span>
-                                       <span class="right">
-                                           <i class="material-icons left">more_vert</i> 
-                                       </span><br>
-                                       <small class="grey-text">
-                                           Publicado el <?=form_fecha($post['create_at_pub'])?>
-                                       </small><br><br>
-                                   </div>
-                       
-                                   
-                                   <div class="card-image">
-                                   <?php if($post['photo_pub'] != false): ?>
-                                       <img src="./photo/<?php echo $post['photo_pub'] ?>" alt="Publicaci&oacute;n de <?php echo $post['name'].' '.$post['surname'] ?>" />
-                                       <span class="card-title"><?php echo $post['name'].' '.$post['surname'] ?></span>
-                                   <?php endif ?>
-                       
-                                   </div>
-                                   <div class="card-content">
-                                   
-                                   <?php if($post['messeger_pub'] != false) : ?>
-                                       <p><?php echo $post['messeger_pub'] ?></p><br>
-                       
-                                       <div class="divider"></div><br>
-                                   <?php endif ?>
-                       
-                                   <!-- Reacciones -->
-                                   <div class="row">
-                       
-                                       <!-- Like -->
-                                       <div class="col s6">
-                                           <a href="" class="black-text">
-                                               <i class="material-icons left small">favorite_border</i>
-                                               <span class="flow-text black-text">10</span>
-                                           </a>
-                                       </div>
-                       
-                                       <!-- Comments -->
-                                       <div class="col s6">
-                                           <span id="click-comment" class="black-text right">
-                                               <i class="material-icons left small">comment</i>
-                                               <span class="flow-text black-text">2</span>
-                                           </span>
-                                       </div>
-                                   </div>
-                       
-                       
-                                   <!-- Area de texto para escribir un comentario -->
-                                   <div id="view-comment" class="hide row">
-                                   <div class="divider"></div>
-                                       <form class="col s12">
-                                           <div class="row">
-                                               <div class="input-field col s12">
-                                               <i class="material-icons prefix">comment</i>
-                                               <textarea id="comment" class="materialize-textarea"></textarea>
-                                               <label for="comment">Escribe un comentario...</label>
-                                               </div>
-                       
-                                               <button class="btn waves-effect btn-color right" type="submit" name="action">Comentar
-                                                   <i class="material-icons left">send</i>
-                                               </button>
-                                           </div>
-                                       </form>
-                                   </div>
-                       
-                       
-                               </div>
-                           </div>
-                       </div>
-                    <?php endforeach ?>
+                    <!-- Publicaciones -->
 
                 <?php require_once('modal/option-profile.php') ?>
 

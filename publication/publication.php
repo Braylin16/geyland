@@ -40,72 +40,35 @@ $result = $stetament->fetchAll();
         <div class="card">
 
             <div>
-                <br>
-                <img src="img-profile/<?=$post['photo_profile']?>" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 xl2 img-adaptable circle" height="50">
-                <span class="flow-text pink-text"><?php echo $post['name'].' '.$post['surname'] ?></span>
-                <span class="right">
-                    <i class="material-icons left">more_vert</i> 
-                </span><br>
-                <small class="grey-text">
-                    Publicado el <?=fecha($post['create_at_pub'])?>
-                </small><br><br>
-            </div>
+               
+                <a href="profile?user=<?=$post['id_user']?>">
 
-            
-            <div class="card-image">
-            <?php if($post['photo_pub'] != false): ?>
-                <img src="./photo/<?php echo $post['photo_pub'] ?>" alt="Publicaci&oacute;n de <?php echo $post['name'].' '.$post['surname'] ?>" />
-                <span class="card-title"><?php echo $post['name'].' '.$post['surname'] ?></span>
-            <?php endif ?>
-
+                    <br>
+                    <img src="img-profile/<?=$post['photo_profile']?>" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 xl2 img-adaptable circle" height="50">
+                    <span class="flow-text pink-text"><?php echo $post['name'].' '.$post['surname'] ?></span>
+                    <a href="#">
+                        <span class="right">
+                            <i class="material-icons left small pink-text">near_me</i> 
+                        </span><br>
+                    </a>
+                    <small class="grey-text">
+                        Publicado el <?=fecha($post['create_at_pub'])?>
+                    </small><br><br>
             </div>
+                    
+                    <div class="card-image">
+                        <?php if($post['photo_pub'] != false): ?>
+                            <img src="./photo/<?php echo $post['photo_pub'] ?>" alt="Publicaci&oacute;n de <?php echo $post['name'].' '.$post['surname'] ?>" />
+                            <span class="card-title"><?php echo $post['name'].' '.$post['surname'] ?></span>
+                        <?php endif ?>
+
+                    </div>
+                </a>
             <div class="card-content">
             
             <?php if($post['messeger_pub'] != false) : ?>
                 <p><?php echo $post['messeger_pub'] ?></p><br>
-
-                <div class="divider"></div><br>
             <?php endif ?>
-
-            <!-- Reacciones -->
-            <div class="row">
-
-                <!-- Like -->
-                <div class="col s6">
-                    <a href="" class="black-text">
-                        <i class="material-icons left small">favorite_border</i>
-                        <span class="flow-text black-text">10</span>
-                    </a>
-                </div>
-
-                <!-- Comments -->
-                <div class="col s6">
-                    <span id="click-comment" class="black-text right">
-                        <i class="material-icons left small">comment</i>
-                        <span class="flow-text black-text">2</span>
-                    </span>
-                </div>
-            </div>
-
-
-            <!-- Area de texto para escribir un comentario -->
-            <div id="view-comment" class="hide row">
-            <div class="divider"></div>
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                        <i class="material-icons prefix">comment</i>
-                        <textarea id="comment" class="materialize-textarea"></textarea>
-                        <label for="comment">Escribe un comentario...</label>
-                        </div>
-
-                        <button class="btn waves-effect btn-color right" type="submit" name="action">Comentar
-                            <i class="material-icons left">send</i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
 
         </div>
     </div>

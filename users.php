@@ -1,9 +1,16 @@
+<?php session_start();
+require_once('connection/connection.php');
+require_once('functions/functions.php');
+$email = $_SESSION['email'];
+require_once('user/user.php');
+logout();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geyland</title>
+    <title>Geyland | Usuarios que se han registrado ultimamente</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />
@@ -27,71 +34,36 @@
 
                 <div class="divider"></div><br>
 
-                <!-- Braylin -->
-                <div class="col s12">
-                    <img src="images/yo.jpg" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Braylin Ivan Payano</strong><br>
-                    <small>Republica Dominicana</small>
+                <?php require_once('backend/users.php') ?>
+                <?php foreach($result as $post) : ?>
+                    <!-- User -->
+                    <div class="col s12">
+                    
+                        <a href="profile?user=<?=$post['id_user']?>">
 
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
+                            <?php if($post['photo_profile'] != false) : ?>
+                                <img src="img-profile/<?=$post['photo_profile']?>" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 xl1 img-adaptable" height="50">
+                            <?php else : ?>
+                                <img src="images/user.png" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 xl1 img-adaptable" height="50">
+                            <?php endif?>
 
-                <p>
-                    <div class="divider"></div>
-                </p><br><br>
+                            <strong class="pink-text"><?=$post['name'].' '.$post['surname']?></strong><br>
+                            <small class="black-text">Republica Dominicana</small>
 
-                <div class="divider"></div><br>
+                        </a>
 
-                <!-- Usuarios -->
-                <div class="col s12">
-                    <img src="images/user.png" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Jairo Vasquez</strong><br>
-                    <small>Colombia</small>
+                        <a class="col s4 m3 xl2 right btn-color btn">
+                            <i class="material-icons left">near_me</i>
+                            Chatear
+                        </a>
+                    </div>
 
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
+                    <p>
+                        <div class="divider"></div>
+                    </p><br><br>
 
-                <p>
-                    <div class="divider"></div>
-                </p><br><br>
-
-                <div class="divider"></div><br>
-
-                <!-- Robert -->
-                <div class="col s12">
-                    <img src="images/robert.jpg" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Robert Smith</strong><br>
-                    <small>Estados Unidos</small>
-
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
-
-                <!-- Carla -->
-                <p>
-                    <div class="divider"></div>
-                </p><br><br>
-
-                <div class="divider"></div><br>
-
-                <div class="col s12">
-                    <img src="images/carla.jpg" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Carla Claker</strong><br>
-                    <small>Reino Unido</small>
-
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
+                    <div class="divider"></div><br>
+                <?php endforeach ?>
 
             </article>
         </section>

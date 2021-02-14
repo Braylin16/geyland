@@ -19,5 +19,5 @@ while ($row = $stmt->fetch()) {
     $year = $row['year'];
     $create_at = $row['create_at_user'];
 
-    $id_user = (int)$id;
+    $id = (int)$id;
 }

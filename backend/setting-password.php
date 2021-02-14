@@ -57,6 +57,11 @@ if(isset($_POST['submit'])){
         $errors .= '* La contraseña actual que has introducido no coiciden <br/>';
    }
 
+   // Si la contraseña actual es la misma nueva, lanzamos un error
+   if($pass == $nueva){
+        $errors .= '* Coloca una contrase&ntilde;a diferente a la actual <br />';
+   }
+
    // Si todo esta correcto y ha logrado pasar el filtro, actualiza los datos
    if($errors == ''){
     $statement = $conexion->prepare("UPDATE users SET password = '$nueva' WHERE email = '$email'"
