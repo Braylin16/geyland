@@ -1,3 +1,10 @@
+<?php session_start();
+require_once('connection/connection.php');
+require_once('functions/functions.php');
+require_once('url/url.php');
+$email = $_SESSION['email'];
+logout();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

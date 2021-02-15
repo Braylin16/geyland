@@ -43,3 +43,11 @@ create_at_comment   date,
 CONSTRAINT fk_comment_user FOREIGN KEY(id_user_comment) REFERENCES users(id_user),
 CONSTRAINT fk_pub_comment FOREIGN KEY(id_pub_comment) REFERENCES publication(id_pub)
 )ENGINE=InnoDb;
+
+CREATE TABLE contact(
+id_contact          int(255) AUTO_INCREMENT PRIMARY KEY,
+name                varchar(100) NOT NULL,
+surname             varchar(100) NOT NULL,
+email               varchar(100) NOT NULL,
+message             text NOT NULL
+)ENGINE=InnoDb;

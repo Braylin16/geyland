@@ -15,6 +15,14 @@
             </a>
         </li>
 
+        <!-- Personas para chatear -->
+        <li>
+            <a href="users" class="black-text">
+                <i class="material-icons">person</i> 
+                Gente
+            </a>
+        </li>
+
         <!-- Configuracion -->
         <li>
             <a href="setting" class="black-text">

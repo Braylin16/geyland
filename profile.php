@@ -112,7 +112,7 @@ while ($row = $stmt->fetch()) {
                         <div class="col s12">
                             <p class="pink-text">
                                 <i class="purple-text material-icons left">flag</i>
-                                Republica Dominicana &#8226; <?php if($year != false and $day != false and $month != false) { echo $month.' '.$day.' de '.$year; } ?>
+                                Republica Dominicana &#8226; <?php if($year != false and $day != false and $month != false) { echo $day.' de '.ucwords($month).' de '.$year; } ?>
                             </p>
                         </div>
 
@@ -150,7 +150,6 @@ while ($row = $stmt->fetch()) {
 
     <!-- Script Jquery -->
     <script src="jquery/tabs.js"></script>
-    <script src="js/comment.js"></script>
 
 </body>
 </html>

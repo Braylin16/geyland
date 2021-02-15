@@ -95,6 +95,7 @@ nav {
   bottom: -100px;
   height: 200px;
   width: 200px;
+  border: 2px solid #eceff1 !important;
 }
 
 
@@ -115,4 +116,18 @@ nav {
 
 .paso {
   margin: 10px 12px !important;
+}
+
+/* Boton de ir arriba */
+.ir-arriba {
+	display:none;
+	padding: 10px 15px;
+	background:#e91e63;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+  border-radius: 4px;
 }

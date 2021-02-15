@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
 
     // No hay problemas y pasa por nuestro filtro, dejalo registrar el producto
     if($errors == ''){
-        $statement = $conexion->prepare("UPDATE users SET photo_profile = '$photoName' WHERE id_user = $id_user"
+        $statement = $conexion->prepare("UPDATE users SET photo_profile = '$photoName' WHERE id_user = $id"
         );
         $statement->execute(array(
             ':photoName' => $photoName,

@@ -24,6 +24,11 @@ logout();
     <!-- Content -->
     <main class="section">
         <?php require_once('menu/menu.php') ?>
+
+        <!-- Boton de ir arriba -->
+        <span class="ir-arriba">
+            <i class="material-icons">arrow_upward</i>
+        </span>
         
         <!-- Content -->
         <section class="container">
@@ -80,7 +85,7 @@ logout();
     <?php require_once('frontend/footer.php') ?>
 
     <!-- Script -->
-    <script src="js/comment.js"></script>
+    <script src="js/top.js"></script>
     <script src="js/publication.js"></script>
     
 </body>
