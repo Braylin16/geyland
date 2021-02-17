@@ -131,3 +131,22 @@ nav {
 	right:20px;
   border-radius: 4px;
 }
+
+/* Reglas css para el chat */
+
+/* Clase para los mensajes de texto */
+.receptor {
+  padding: 12px 10px;
+  border-radius: 5px;
+}
+
+.emisor {
+  padding: 12px 10px;
+  border-radius: 5px;
+}
+
+/* Chat scroll */
+.chat-sala {
+  height: 10rem;
+  overflow: auto;
+}

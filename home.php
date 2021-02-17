@@ -65,7 +65,7 @@ logout();
                                 <i class="material-icons left">send</i>
                             </button>
 
-                            <p id="respuesta" class="red-text"></p>
+                            <!-- <p id="respuesta" class="red-text"></p> -->
                         </form>
                     </div>
 

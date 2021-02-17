@@ -59,13 +59,6 @@ logout();
                             <label for="surname">Apellidos</label>
                             </div>
 
-                            <!-- Correo electronico -->
-                            <div class="input-field col s12">
-                            <i class="material-icons prefix">mail</i>
-                            <input id="email" name="email" type="email" class="validate" value="<?=$email?>" />
-                            <label for="email">Correo electr&oacute;nico</label>
-                            </div>
-
                             <!-- Correo apodo -->
                             <div class="input-field col s12">
                             <i class="material-icons prefix">person</i>

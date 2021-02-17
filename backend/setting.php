@@ -7,7 +7,6 @@ if(isset($_POST['submit'])){
 
     $name = $_POST['name'];
     $surname = $_POST['surname'];
-    $email = $_POST['email'];
     $nick = $_POST['nick'];
     $description = $_POST['description'];
 
@@ -28,10 +27,6 @@ if(isset($_POST['submit'])){
     $surname = htmlspecialchars($surname);
     $surname = trim($surname);
     $surname = filter_var($surname, FILTER_SANITIZE_STRING);
-
-    $email = htmlspecialchars($email);
-    $email = trim($email);
-    $email = filter_var($email, FILTER_SANITIZE_STRING);
 
     $nick = htmlspecialchars($nick);
     $nick = trim($nick);
@@ -74,12 +69,11 @@ if(isset($_POST['submit'])){
 
     // Una vez pasado este punto, entonces actualizamos
     if($errors == ''){
-        $statement = $conexion->prepare("UPDATE users SET name = '$name', surname = '$surname', email = '$email', nick = '$nick', description = '$description' WHERE id_user = '$id'"
+        $statement = $conexion->prepare("UPDATE users SET name = '$name', surname = '$surname', nick = '$nick', description = '$description' WHERE id_user = '$id'"
         );
         $statement->execute(array(
             ':name' => $name,
             ':surname' => $surname,
-            ':email' => $email,
             ':nick' => $nick,
             ':description' => $description,
             ':id' => $id

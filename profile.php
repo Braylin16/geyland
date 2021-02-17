@@ -32,7 +32,7 @@ while ($row = $stmt->fetch()) {
     $day = $row['day'];
     $month = $row['month'];
     $year = $row['year'];
-    $create_at = $row['create_at_user'];
+    $create_at_user = $row['create_at_user'];
 
     $id_user = (int)$id_user;
 
@@ -113,6 +113,11 @@ while ($row = $stmt->fetch()) {
                             <p class="pink-text">
                                 <i class="purple-text material-icons left">flag</i>
                                 Republica Dominicana &#8226; <?php if($year != false and $day != false and $month != false) { echo $day.' de '.ucwords($month).' de '.$year; } ?>
+                            </p>
+
+                            <p class="pink-text">
+                                <i class="purple-text material-icons left">account_box</i>
+                                Se uni&oacute; el: <?=form_fecha($create_at_user)?>
                             </p>
                         </div>
 
