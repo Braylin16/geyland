@@ -147,6 +147,10 @@ nav {
 
 /* Chat scroll */
 .chat-sala {
-  height: 10rem;
+  height: 13rem;
   overflow: auto;
+}
+
+.messege-row {
+  margin: 4px 0px !important;
 }

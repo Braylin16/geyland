@@ -52,7 +52,7 @@ logout();
 
                         </a>
 
-                        <a class="col s4 m3 xl2 right btn-color btn">
+                        <a href="conversation?user=<?=$post['id_user']?>" class="col s4 m3 xl2 right btn-color btn">
                             <i class="material-icons left">near_me</i>
                             Chatear
                         </a>

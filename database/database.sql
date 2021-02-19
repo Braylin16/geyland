@@ -44,10 +44,25 @@ CONSTRAINT fk_comment_user FOREIGN KEY(id_user_comment) REFERENCES users(id_user
 CONSTRAINT fk_pub_comment FOREIGN KEY(id_pub_comment) REFERENCES publication(id_pub)
 )ENGINE=InnoDb;
 
+CREATE TABLE messege(
+id_messege           int(255) AUTO_INCREMENT PRIMARY KEY,
+id_emisor            int(255) NOT NULL,
+id_receptor          int(255) NOT NULL,
+messege              text,
+photo_messege        varchar(200),
+ip_messege           varchar(200),
+browser_messege      varchar(200),
+create_at_messege    date,
+CONSTRAINT fk_messege_emisor FOREIGN KEY(id_emisor) REFERENCES users(id_user),
+CONSTRAINT fk_messege_receptor FOREIGN KEY(id_receptor) REFERENCES users(id_user)
+)ENGINE=InnoDb;
+
 CREATE TABLE contact(
 id_contact          int(255) AUTO_INCREMENT PRIMARY KEY,
 name                varchar(100) NOT NULL,
 surname             varchar(100) NOT NULL,
 email               varchar(100) NOT NULL,
-message             text NOT NULL
+message             text NOT NULL,
+ip_contact          varchar(200),
+browser_contact     varchar(200)
 )ENGINE=InnoDb;

@@ -6,7 +6,7 @@ require_once('../connection/connection.php');
 $email = $_SESSION['email'];
 require_once('../user/user.php');
 
- // Obtener direccion ip del cliente
+// Obtener direccion ip del cliente
 $ip = $_SERVER['REMOTE_ADDR'];
 
  // Obtener el navegador del visitante
@@ -15,15 +15,24 @@ $browser = $_SERVER['HTTP_USER_AGENT'];
 $errors = '';
 $maxSize = 2097152; // 2 MB
 
-if(isset($_POST['public']) || isset($_FILES['img'])){
+if(isset($_POST['receptor']) || isset($_POST['messege']) || isset($_FILES['photo'])){
 
-    $post = $_POST['public'];
-    $photo = $_FILES['img'];
+    $messege = $_POST['messege'];
+    $photo = $_FILES['photo'];
+    $receptor = $_POST['receptor'];
 
-    if(empty($post) and empty($photo)){
-        $errors = 'Intenta publicar algo';
-        echo 'Intenta publicar algo';
+    $receptor = (int)$receptor;
+
+    // Si no existe no foto ni mensaje, error
+    if(empty($messege) AND empty($photo)){
+        $errors = 'Ha ocurrido un error en tu mensaje';
+        echo 'Ha ocurrido un error en tu mensaje';
     }
+
+    // Limpiar mensaje de injercion de datos
+    $messege = htmlspecialchars($messege);
+    $messege = trim($messege);
+    $messege = filter_var($messege, FILTER_SANITIZE_STRING);
 
     // Obtenemos el nombre y la extension de la img
     $photoName = $photo['name'];
@@ -40,35 +49,31 @@ if(isset($_POST['public']) || isset($_FILES['img'])){
             echo 'La imagen pesa mucho, por favor solo 2MB';
         }
 
-        if(!is_dir('../photo')){
-            mkdir('../photo', 0777);
+        if(!is_dir('../messege-photo')){
+            mkdir('../messege-photo', 0777);
         }
 
         // Movemos la img a la carpeta photo
-        move_uploaded_file($photo['tmp_name'], '../photo/'.$photoName);
+        move_uploaded_file($photo['tmp_name'], '../messege-photo/'.$photoName);
 
     }else {
         $errors .= "Lo siento, no aceptamos esta extension $photoName";
         echo "Lo siento, no aceptamos esta extension $photoName";
     }
 
-   // Limpiar
-    $post = htmlspecialchars($post);
-    $post = trim($post);
-    $post = filter_var($post, FILTER_SANITIZE_STRING);
-
-   // Si no hay errores, guardamos la pub en la BD
-    if($errors == ''){
-        $statement = $conexion->prepare('INSERT INTO publication (id_pub, id_user_pub, messeger_pub, photo_pub, ip_pub, browser_pub, create_at_pub) VALUES(
-            null, :id, :post, :photoName, :ip, :browser, NOW())'
+     // Si no hay errores, enviamos el mensaje a la Base de datos
+     if($errors == ''){
+        $statement = $conexion->prepare('INSERT INTO messege (id_messege, id_emisor, id_receptor, messege, photo_messege, ip_messege, browser_messege, create_at_messege) VALUES(
+            null, :id, :receptor, :messege, :photoName, :ip, :browser, NOW())'
         );
         $statement->execute(array(
             ':id' => $id,
-            ':post' => $post,
+            ':messege' => $messege,
             ':photoName' => $photoName,
+            ':receptor' => $receptor,
             ':ip' => $ip,
             ':browser' => $browser
         ));
-
     }
+
 }
