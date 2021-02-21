@@ -6,6 +6,6 @@ function tiempoReal()
             async:false
         }).responseText;
 
-        document.getElementById("chat-sala").innerHTML = tabla;
+        document.getElementById("sala").innerHTML = tabla;
     }
-    setInterval(tiempoReal, 1000);
+setInterval(tiempoReal, 1000);

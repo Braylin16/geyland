@@ -45,7 +45,12 @@ if(isset($_GET['user'])){
 
             <?php require_once('backend/conversation.php') ?>
             <?php foreach($result as $post) : ?>
-            <h1 class="flow-text pink-text center"><?=$post['name'].' '.$post['surname']?></h1>
+            
+                <a href="users" class="tooltipped" data-position="top" data-tooltip="Regresar">
+                    <i class="material-icons left small pink-text">arrow_back</i>
+                </a>
+                <strong class="flow-text pink-text"><?=$post['name'].' '.$post['surname']?></strong>
+            
             <div class="divider"></div><br>
             <?php endforeach ?>
 
@@ -82,7 +87,13 @@ if(isset($_GET['user'])){
                         <?php endif ?>
 
                         <span class="<?php echo $clase; ?>" title="<?php echo form_fecha($mensaje['create_at_messege']); ?>">
-                        <?php echo $mensaje['messege']; ?>
+                            
+                            <?php echo $mensaje['messege']; ?>
+
+                            <?php if($mensaje['photo_messege'] == true) : ?>
+                                <img src="messege-photo/<?php echo $mensaje['photo_messege']; ?>" alt="Una foto" class="materialboxed">
+                            <?php endif ?>
+
                         </span>
                     </div>
                 <?php

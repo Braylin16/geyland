@@ -59,7 +59,7 @@ if(isset($_POST['submit'])){
 
    // Si la contraseña actual es la misma nueva, lanzamos un error
    if($pass == $nueva){
-        $errors .= '* Coloca una contrase&ntilde;a diferente a la actual <br />';
+        $errors .= '* La nueva contraseña no puede ser igual a la actual <br />';
    }
 
    // Si todo esta correcto y ha logrado pasar el filtro, actualiza los datos
