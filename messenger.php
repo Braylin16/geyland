@@ -10,7 +10,7 @@ logout();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geyland</title>
+    <title>Mis conversaciones | Geyland</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />
@@ -27,17 +27,36 @@ logout();
         <section class="container z-depth-1 white">
             <article class="row section">
 
-                <h1 class="flow-text center-align">Conversaciones</h1>
+                <h1 class="flow-text center-align">Mis conversaciones</h1>
 
                 <div class="divider"></div><br>
 
                 <!-- Braylin -->
+                <?php require_once('backend/messenger.php') ?>
+                <?php foreach($result as $post) : ?>
                 <div class="col s12">
-                    <img src="images/yo.jpg" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Braylin Ivan Payano</strong><br>
-                    <small>Republica Dominicana</small>
 
-                    <a class="col s4 m3 xl2 right btn-color btn">
+                    <a href="conversation?user=<?=$post['id_user']?>">
+
+                        <?php if($post['photo_profile'] != false) : ?>
+                            <img src="img-profile/<?=$post['photo_profile']?>" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 xl1 img-adaptable" height="50">
+                        <?php else : ?>
+                            <img src="images/user.png" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 xl1 img-adaptable" height="50">
+                        <?php endif ?>
+
+
+                        <strong class="pink-text"><?=$post['name'].' '.$post['surname']?></strong>
+                        <small class="black-text"><?=form_fecha($post['create_at_messege'])?></small><br>
+                        <span class="grey-text">
+
+                            <?php if($post['id_emisor'] == $id) : ?>
+                                T&uacute;:
+                            <?php endif ?> 
+                        <?=$post['messege']?></span>
+
+                    </a>
+
+                    <a href="conversation?user=<?=$post['id_user']?>" class="col s4 m3 xl2 right btn-color btn">
                         <i class="material-icons left">near_me</i>
                         Chatear
                     </a>
@@ -48,54 +67,7 @@ logout();
                 </p><br><br>
 
                 <div class="divider"></div><br>
-
-                <!-- Usuarios -->
-                <div class="col s12">
-                    <img src="images/user.png" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Jairo Vasquez</strong><br>
-                    <small>Hola, donde andas ?</small>
-
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
-
-                <p>
-                    <div class="divider"></div>
-                </p><br><br>
-
-                <div class="divider"></div><br>
-
-                <!-- Robert -->
-                <div class="col s12">
-                    <img src="images/robert.jpg" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Robert Smith</strong><br>
-                    <small>Es cierto que juegas baloncesto</small>
-
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
-
-                <!-- Carla -->
-                <p>
-                    <div class="divider"></div>
-                </p><br><br>
-
-                <div class="divider"></div><br>
-
-                <div class="col s12">
-                    <img src="images/carla.jpg" alt="Braylin Ivan Payano" class="circle col s2 m2 xl1">
-                    <strong class="pink-text">Carla Claker</strong><br>
-                    <small>Te amo</small>
-
-                    <a class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
-                </div>
+                <?php endforeach ?>
 
             </article>
         </section>

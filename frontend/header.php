@@ -50,14 +50,6 @@
         </li>
     </ul>
 
-    <!-- Dropdown Structure2 -->
-    <ul id="dropdown2" class="dropdown-content">
-        <li><a href="#" class="black-text">Mensaje 1</a></li>
-        <li><a href="#" class="black-text">Mensaje 2</a></li>
-        <li class="divider"></li>
-        <li><a href="#" class="black-text">Mensaje 3</a></li>
-    </ul>
-
     <!-- Navbar -->
     <div class="navbar-fixed">
         <nav>
@@ -101,7 +93,7 @@
 
                 <!-- Boton de leer mensajes -->
                 <li>
-                    <a href="#" class="dropdown-trigger messenger-dropdown" data-target="dropdown2">
+                    <a href="messenger" class="messenger-dropdown">
                         <i class="material-icons right">mail</i>
                     </a>
                 </li>

@@ -10,7 +10,7 @@
     <div class="container">
       <h2>Oops! Página no encontrada.</h2>
       <h1>404</h1>
-      <p>No podemos encontrar la página que busca.</p>
+      <p>No podemos encontrar la página que buscas.</p>
       <a href="<?=$url?>">Regresar a casa</a>
     </div>
   </body>

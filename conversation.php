@@ -6,10 +6,15 @@ require_once('user/user.php');
 require_once('url/url.php');
 logout();
 
+error_reporting(0);
+
 if(isset($_GET['user'])){
 
     $receptor = $_GET['user'];
     $receptor = (int)$receptor;
+
+    $_SESSION['id_user'] = $receptor;
+    $_SESSION['receptor'] = $receptor;
 
     // Si me envio un mensaje a mi, me salgo
     if($id === $receptor){
@@ -45,61 +50,19 @@ if(isset($_GET['user'])){
 
             <?php require_once('backend/conversation.php') ?>
             <?php foreach($result as $post) : ?>
-            
-                <a href="users" class="tooltipped" data-position="top" data-tooltip="Regresar">
+                <a href="messenger" class="tooltipped" data-position="top" data-tooltip="Regresar">
                     <i class="material-icons left small pink-text">arrow_back</i>
                 </a>
-                <strong class="flow-text pink-text"><?=$post['name'].' '.$post['surname']?></strong>
-            
-            <div class="divider"></div><br>
+                
+                <a href="profile?user=<?=$receptor?>">
+                    <span class="flow-text pink-text"><?=$post['name'].' '.$post['surname']?></span>
+                </a>
+
+                <div class="divider"></div><br>
             <?php endforeach ?>
-
             
-            <div id="chat-sala" class="chat-sala">
-            
-                <?php
-                // Incluye el archivo para obtener todos los mensajes
-                require_once('messege/emisor.php');
-                foreach($result as $post) : 
-                foreach($mensajes as $mensaje) :
-                    if($mensaje['id_emisor'] == $receptor) {
-                        // Este mensaje fue enviado por el usuario en sesión
-                        $clase = 'black-text emisor left grey lighten-4';
-                    } else {
-                        // Este mensaje fue enviado por el otro usuario
-                        $clase = 'white-text right pink receptor';
-                    }
-                    // Obtener datos del emisor
-                    $usuario = $id;
-                ?>
-                    <!-- Mensajes que me han enviado | Receptor -->
-                    <div class="col s12 messege-row">
-
-                        <!-- Para que la img no se repitan -->
-                        <?php if($mensaje['id_emisor'] == $receptor) : ?>
-
-                            <?php if($post['photo_profile'] != false) : ?>
-                                <img src="img-profile/<?=$post['photo_profile']?>" alt="<?=$post['name']?>" class="col s2 m2 xl1 img-adaptable circle" height="50">
-                            <?php else : ?>
-                                <img src="images/user.png" alt="<?=$post['name']?>" class="col s2 m2 xl1 img-adaptable circle" height="50">
-                                <?php endif ?>
-
-                        <?php endif ?>
-
-                        <span class="<?php echo $clase; ?>" title="<?php echo form_fecha($mensaje['create_at_messege']); ?>">
-                            
-                            <?php echo $mensaje['messege']; ?>
-
-                            <?php if($mensaje['photo_messege'] == true) : ?>
-                                <img src="messege-photo/<?php echo $mensaje['photo_messege']; ?>" alt="Una foto" class="materialboxed">
-                            <?php endif ?>
-
-                        </span>
-                    </div>
-                <?php
-                endforeach;
-                endforeach;
-                ?>
+            <div id="chat-sala">
+                <?php require_once('messege/emisor.php') ?>
             </div>
 
 
@@ -148,7 +111,7 @@ if(isset($_GET['user'])){
     <script src="js/top.js"></script>
     <script src="js/conversation.js"></script>
     <script src="js/scroll-chat.js"></script>
-    <!-- <script src="js/select-conversation.js"></script> -->
+    <script src="js/select-conversation.js"></script>
     
 </body>
 </html>
