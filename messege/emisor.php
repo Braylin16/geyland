@@ -100,7 +100,7 @@ $mensajes = $prep->fetchAll(PDO::FETCH_ASSOC);
                 <?php echo $mensaje['messege']; ?>
                 
                 <?php if($mensaje['photo_messege'] == true) : ?>
-                    <img src="messege-photo/<?php echo $mensaje['photo_messege']; ?>" alt="Una foto">
+                    <img src="messege-photo/<?php echo $mensaje['photo_messege']; ?>" width="300" alt="Una foto">
                 <?php endif ?>
                 
             </span>

@@ -52,14 +52,22 @@ logout();
                             <?php if($post['id_emisor'] == $id) : ?>
                                 T&uacute;:
                             <?php endif ?> 
-                        <?=$post['messege']?></span>
+
+                            <?php if($post['messege'] != false) : ?>
+                                <?=$post['messege']?>
+                            <?php else : ?>
+                                <i class="material-icons">photo</i>
+                            <?php endif ?>
+
+                        </span>
+
+                        <button type="button" class="col s4 m3 xl2 right btn-color btn">
+                            <i class="material-icons left">near_me</i>
+                            Chatear
+                        </button>
 
                     </a>
-
-                    <a href="conversation?user=<?=$post['id_user']?>" class="col s4 m3 xl2 right btn-color btn">
-                        <i class="material-icons left">near_me</i>
-                        Chatear
-                    </a>
+                    
                 </div>
 
                 <p>
