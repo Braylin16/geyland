@@ -3,6 +3,7 @@ require_once('connection/connection.php');
 require_once('functions/functions.php');
 $email = $_SESSION['email'];
 require_once('user/user.php');
+require_once('remember/remember.php');
 logout();
 ?>
 <!DOCTYPE html>
@@ -71,7 +72,7 @@ logout();
                </div>
             </div>
 
-            <div class="col s2 publication-div"></div>
+            <div class="hide-on-small-only col s2 publication-div"></div>
             <?php require_once('publication/publication.php') ?>
 
             </div>

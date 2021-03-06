@@ -4,6 +4,7 @@ require_once('functions/functions.php');
 $email = $_SESSION['email'];
 require_once('user/user.php');
 require_once('url/url.php');
+require_once('remember/remember.php');
 logout();
 
 error_reporting(0);

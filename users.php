@@ -3,6 +3,7 @@ require_once('connection/connection.php');
 require_once('functions/functions.php');
 $email = $_SESSION['email'];
 require_once('user/user.php');
+require_once('remember/remember.php');
 logout();
 ?>
 <!DOCTYPE html>
@@ -42,13 +43,13 @@ logout();
                         <a href="profile?user=<?=$post['id_user']?>">
 
                             <?php if($post['photo_profile'] != false) : ?>
-                                <img src="img-profile/<?=$post['photo_profile']?>" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 xl1 img-adaptable" height="50">
+                                <img src="img-profile/<?=$post['photo_profile']?>" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 l1 xl1 img-adaptable" height="50">
                             <?php else : ?>
-                                <img src="images/user.png" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 xl1 img-adaptable" height="50">
+                                <img src="images/user.png" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 l1 xl1 img-adaptable" height="50">
                             <?php endif?>
 
                             <strong class="pink-text"><?=$post['name'].' '.$post['surname']?></strong><br>
-                            <small class="black-text">Republica Dominicana</small>
+                            <small class="black-text"><?=substr($post['description'], 0, 50)?></small>
 
                         </a>
 

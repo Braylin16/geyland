@@ -4,6 +4,7 @@ require_once('url/url.php');
 require_once('backend/login.php');
 require_once('backend/register.php');
 require_once('functions/functions.php');
+require_once('remember/remember.php');
 notLogout();
 ?>
 <!DOCTYPE html>

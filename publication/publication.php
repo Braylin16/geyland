@@ -5,7 +5,7 @@ try{
 }catch(PDOExeption $e){
   echo "Lo sentimos, ha ocurrido un error nuestros ingenieros trabajan para solucionarlo: " . $e->getMessage();
   die();
-} 
+}
 
 // Formatear fecha
 function fecha($fecha){
@@ -25,7 +25,7 @@ function fecha($fecha){
 
  // sacar todas las publicaciones
  $stetament = $conexion->prepare(
-    "SELECT users.id_user, users.name, users.surname, users.photo_profile, publication.id_pub, publication.id_user_pub, publication.messeger_pub, publication.photo_pub, publication.create_at_pub FROM publication INNER JOIN users WHERE users.id_user = publication.id_user_pub ORDER BY publication.id_pub DESC LIMIT 7"
+    "SELECT users.id_user, users.name, users.surname, users.photo_profile, publication.id_pub, publication.id_user_pub, publication.messeger_pub, publication.photo_pub, publication.create_at_pub FROM publication INNER JOIN users WHERE users.id_user = publication.id_user_pub ORDER BY publication.id_pub DESC LIMIT 11"
 );
 
 $stetament->execute(array());
@@ -43,27 +43,32 @@ $result = $stetament->fetchAll();
                
                 <a href="profile?user=<?=$post['id_user']?>">
 
+                    <!-- Foto de perfil -->
                     <br>
-                    <img src="img-profile/<?=$post['photo_profile']?>" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 xl2 img-adaptable circle" height="50">
-                    <span class="flow-text pink-text"><?php echo $post['name'].' '.$post['surname'] ?></span>
-                    <a href="#">
+                    <img src="img-profile/<?=$post['photo_profile']?>" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 l2 xl2 img-adaptable circle" height="50">
+                    <span class="flow-text pink-text"><?php echo $post['name'].' '.$post['surname'] ?></span><br>
+
+                    <!-- <a href="conversation?user=">
                         <span class="right">
                             <i class="material-icons left small pink-text">near_me</i> 
                         </span><br>
-                    </a>
+                    </a> -->
+
                     <small class="grey-text">
                         Publicado el <?=fecha($post['create_at_pub'])?>
                     </small><br><br>
-            </div>
-                    
-                    <div class="card-image">
-                        <?php if($post['photo_pub'] != false): ?>
-                            <img src="./photo/<?php echo $post['photo_pub'] ?>" alt="Publicaci&oacute;n de <?php echo $post['name'].' '.$post['surname'] ?>" />
-                            <span class="card-title"><?php echo $post['name'].' '.$post['surname'] ?></span>
-                        <?php endif ?>
-
-                    </div>
                 </a>
+
+            </div>
+
+                <div class="card-image">
+                
+                    <?php if($post['photo_pub'] != false): ?>
+                        <img src="./photo/<?php echo $post['photo_pub'] ?>" alt="Publicaci&oacute;n de <?php echo $post['name'].' '.$post['surname'] ?>" />
+                        <span class="card-title"><?php echo $post['name'].' '.$post['surname'] ?></span>
+                    <?php endif ?>
+
+                </div>
             <div class="card-content">
             
             <?php if($post['messeger_pub'] != false) : ?>

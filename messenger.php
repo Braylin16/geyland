@@ -2,6 +2,7 @@
 require_once('connection/connection.php');
 require_once('functions/functions.php');
 require_once('url/url.php');
+require_once('remember/remember.php');
 $email = $_SESSION['email'];
 logout();
 ?>
@@ -39,9 +40,9 @@ logout();
                     <a href="conversation?user=<?=$post['id_user']?>">
 
                         <?php if($post['photo_profile'] != false) : ?>
-                            <img src="img-profile/<?=$post['photo_profile']?>" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 xl1 img-adaptable" height="50">
+                            <img src="img-profile/<?=$post['photo_profile']?>" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 l1 xl1 img-adaptable" height="50">
                         <?php else : ?>
-                            <img src="images/user.png" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 xl1 img-adaptable" height="50">
+                            <img src="images/user.png" alt="<?=$post['name'].' '.$post['surname']?>" class="circle col s2 m2 l1 xl1 img-adaptable" height="50">
                         <?php endif ?>
 
 

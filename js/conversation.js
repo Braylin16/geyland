@@ -23,7 +23,9 @@ $("#submit").click(function(e) {
 
     })
     .done(function(res){
-        $('#respuesta').html(res)
+        $('#respuesta').html(res);
+        $('#messege').val('');
+        $('#photo').val('');
     })
     .fail(function(){
         console.log("error");

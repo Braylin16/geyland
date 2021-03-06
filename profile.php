@@ -4,6 +4,7 @@ require_once('functions/functions.php');
 $email = $_SESSION['email'];
 require_once('user/user.php');
 require('url/url.php');
+require_once('remember/remember.php');
 logout();
 
 if(isset($_GET['user'])){
@@ -101,12 +102,14 @@ while ($row = $stmt->fetch()) {
                         </div>
 
                          <!-- Boton enviar mensaje -->
-                         <div class="col s6 m4 xl3 right">
-                            <a class="waves-effect btn-color btn">
-                                <i class="material-icons left">send</i>
-                                Enviar mensaje
-                            </a>
-                        </div><br>
+                         <?php if($id_user != $id) : ?>
+                            <div class="col s6 m4 xl3 right">
+                                <a href="conversation?user=<?=$id_user?>" class="waves-effect btn-color btn">
+                                    <i class="material-icons left">send</i>
+                                    Enviar mensaje
+                                </a>
+                            </div><br>
+                        <?php endif ?>
 
                         <!-- country -->
                         <div class="col s12">

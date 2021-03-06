@@ -67,10 +67,10 @@
                 <!-- buscar persona -->
                 <li id="input-search" class="hide">
                     <div class="row">
-                        <form class="col s12">
+                        <form action="./search" method="GET" class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="search-header" type="search" placeholder="Buscar personas" class="validate" autocomplete="off">
+                                    <input id="search-header" name="search" type="search" placeholder="Buscar persona" class="validate" autocomplete="off">
                                 </div>
                             </div>
                         </form>

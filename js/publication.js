@@ -21,7 +21,9 @@ $("#submit").click(function(e) {
 
     })
     .done(function(res){
-        $('#respuesta').html(res)
+        $('#respuesta').html(res);
+        $('#post').val('');
+        $('#img').val('');
     })
     .fail(function(){
         console.log("error");
