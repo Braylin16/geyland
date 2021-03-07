@@ -32,7 +32,6 @@ while ($row = $stmt->fetch()) {
 
 }
 
-
 // Obtener datos del otro participante en la conversación
 $consUsuario = "SELECT name, surname, photo_profile FROM users WHERE id_user = $receptor";
 $prepUser = $conexion->prepare($consUsuario);
@@ -106,4 +105,5 @@ $mensajes = $prep->fetchAll(PDO::FETCH_ASSOC);
             </span>
         </div>
     <?php endforeach; ?>
+
 </div>

@@ -51,7 +51,7 @@ logout();
                         <span class="grey-text">
 
                             <?php if($post['id_emisor'] == $id) : ?>
-                                T&uacute;:
+                                <span class="purple-text">T&uacute;:</span>
                             <?php endif ?> 
 
                             <?php if($post['messege'] != false) : ?>

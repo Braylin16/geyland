@@ -5,6 +5,7 @@ $email = $_SESSION['email'];
 require_once('user/user.php');
 require_once('url/url.php');
 require_once('remember/remember.php');
+require_once('view-messege/view-messege.php');
 logout();
 
 error_reporting(0);
@@ -72,6 +73,10 @@ if(isset($_GET['user'])){
                     <form class="col s12" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="input-field col s12">
+                                
+                                <!-- Smogis -->
+                                <i class="material-icons prefix dropdown-trigger" data-target='emotico'>insert_emoticon</i>
+                                
                                 <textarea id="messege" name="messege" class="materialize-textarea" required></textarea>
                                 <label for="messege">Escribe un mensaje...</label>
 
@@ -99,6 +104,40 @@ if(isset($_GET['user'])){
                     </form>
                 </div>
 
+                <!-- Dropdown Structure -->
+                <ul id='emotico' class='dropdown-content'>
+                    <li><span id="s1">😀</span></li>
+                    <li><span id="s2">🤣</span></li>
+                    <li><span id="s3">😍</span></li>
+                    <li><span id="s4">😘</span></li>
+                    <li><span id="s5">😜</span></li>
+                    <li><span id="s6">😎</span></li>
+                    <li><span id="s7">😇</span></li>
+                    <li><span id="s8">🤨</span></li>
+                    <li><span id="s9">😷</span></li>
+                    <li><span id="s10">🤬</span></li>
+                    <li><span id="s11">😈</span></li>
+                    <li><span id="s12">🤡</span></li>
+                    <li><span id="s13">💩</span></li>
+                    <li><span id="s14">🤑</span></li>
+                    <li><span id="s15">😱</span></li>
+                    <li><span id="s16">😭</span></li>
+                    <li><span id="s17">😢</span></li>
+                    <li><span id="s18">🤠</span></li>
+                    <li><span id="s19">🎃</span></li>
+                    <li><span id="s20">👍</span></li>
+                    <li><span id="s21">👎</span></li>
+                    <li><span id="s22">🤘</span></li>
+                    <li><span id="s23">🖕</span></li>
+                    <li><span id="s24">👋</span></li>
+                    <li><span id="s25">🙏</span></li>
+                    <li><span id="s26">👀</span></li>
+                    <li><span id="s27">👮</span></li>
+                    <li><span id="s28">👮‍♀️</span></li>
+                    <li><span id="s29">👨‍💻</span></li>
+                    <li><span id="s30">🕵️‍♂️</span></li>
+                </ul>
+
             </article>
         </section>
 
@@ -113,6 +152,7 @@ if(isset($_GET['user'])){
     <script src="js/conversation.js"></script>
     <script src="js/scroll-chat.js"></script>
     <script src="js/select-conversation.js"></script>
+    <script src="js/smojis.js"></script>
     
 </body>
 </html>

@@ -52,6 +52,7 @@ messege              text,
 photo_messege        varchar(200),
 ip_messege           varchar(200),
 browser_messege      varchar(200),
+view                 varchar(50),
 create_at_messege    date,
 CONSTRAINT fk_messege_emisor FOREIGN KEY(id_emisor) REFERENCES users(id_user),
 CONSTRAINT fk_messege_receptor FOREIGN KEY(id_receptor) REFERENCES users(id_user)

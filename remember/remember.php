@@ -2,8 +2,10 @@
 
 require_once('./connection/connection.php');
 
-$user = $_COOKIE['user'];
-$key = $_COOKIE['PH_DRgmeTSG'];
+if(isset($_COOKIE['user']) AND isset($_COOKIE['PH_DRgmeTSG'])){
+    $user = $_COOKIE['user'];
+    $key = $_COOKIE['PH_DRgmeTSG'];
+}
 
 if(isset($user)){
 
