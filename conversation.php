@@ -75,7 +75,7 @@ if(isset($_GET['user'])){
                             <div class="input-field col s12">
                                 
                                 <!-- Smogis -->
-                                <i class="material-icons prefix dropdown-trigger" data-target='emotico'>insert_emoticon</i>
+                                <i class="material-icons prefix red-text dropdown-trigger" data-target='emotico'>insert_emoticon</i>
                                 
                                 <textarea id="messege" name="messege" class="materialize-textarea" required></textarea>
                                 <label for="messege">Escribe un mensaje...</label>

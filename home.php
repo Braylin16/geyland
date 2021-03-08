@@ -35,6 +35,8 @@ logout();
         <section class="container">
             <article class="row section">
 
+            <?php require_once('emoticos/emoticos-pub.php') ?>
+
             <!-- Textarea para publicar -->
             <div class="col s12">
                 <div class="col s12 m2 xl2"></div>
@@ -44,6 +46,12 @@ logout();
                         <form id="form" method="POST" class="col s12" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="input-field col s12">
+
+                                <!-- Smogis -->
+                                <i class="material-icons prefix red-text dropdown-trigger" data-target='smojis'>
+                                    insert_emoticon
+                                </i>
+
                                 <textarea id="post" name="post" class="materialize-textarea" required></textarea>
                                 <label for="post">Dile algo al mundo...</label>
                                 <span class="helper-text" data-error="wrong" data-success="right">
@@ -87,6 +95,7 @@ logout();
     <!-- Script -->
     <script src="js/top.js"></script>
     <script src="js/publication.js"></script>
+    <script src="js/emoticos-pub.js"></script>
     
 </body>
 </html>

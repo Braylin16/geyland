@@ -25,7 +25,7 @@ function fecha($fecha){
 
  // sacar todas las publicaciones
  $stetament = $conexion->prepare(
-    "SELECT users.id_user, users.name, users.surname, users.photo_profile, publication.id_pub, publication.id_user_pub, publication.messeger_pub, publication.photo_pub, publication.create_at_pub FROM publication INNER JOIN users WHERE users.id_user = publication.id_user_pub ORDER BY publication.id_pub DESC LIMIT 11"
+    "SELECT users.id_user, users.name, users.surname, users.photo_profile, publication.id_pub, publication.id_user_pub, publication.messeger_pub, publication.photo_pub, publication.create_at_pub FROM publication INNER JOIN users WHERE users.id_user = publication.id_user_pub ORDER BY publication.id_pub DESC LIMIT 10"
 );
 
 $stetament->execute(array());
@@ -56,8 +56,14 @@ $result = $stetament->fetchAll();
 
                     <small class="grey-text">
                         Publicado el <?=fecha($post['create_at_pub'])?>
-                    </small><br><br>
+                    </small>
                 </a>
+
+                <?php if($post['messeger_pub'] != false) : ?>
+                    <div class="col s12">
+                        <p><?php echo $post['messeger_pub'] ?></p>
+                    </div>
+                <?php endif ?>
 
             </div>
 
@@ -68,12 +74,13 @@ $result = $stetament->fetchAll();
                         <span class="card-title"><?php echo $post['name'].' '.$post['surname'] ?></span>
                     <?php endif ?>
 
+                    <?php if($post['photo_pub'] == false): ?>
+                    <!-- Mas espacios para las publicaciones -->
+                        <br>
+                    <?php endif ?>
+
                 </div>
             <div class="card-content">
-            
-            <?php if($post['messeger_pub'] != false) : ?>
-                <p><?php echo $post['messeger_pub'] ?></p><br>
-            <?php endif ?>
 
         </div>
     </div>
