@@ -45,7 +45,12 @@ $result = $stetament->fetchAll();
 
                     <!-- Foto de perfil -->
                     <br>
-                    <img src="img-profile/<?=$post['photo_profile']?>" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 l2 xl2 img-adaptable circle" height="50">
+                    <?php if($post['photo_profile'] != false) : ?>
+                        <img src="img-profile/<?=$post['photo_profile']?>" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 l2 xl2 img-adaptable circle" height="50">
+                    <?php else : ?>
+                        <img src="images/user.png" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 l2 xl2 img-adaptable circle" height="50">
+                    <?php endif ?>
+
                     <span class="flow-text pink-text"><?php echo $post['name'].' '.$post['surname'] ?></span><br>
 
                     <!-- <a href="conversation?user=">

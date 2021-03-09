@@ -36,6 +36,8 @@ if(isset($_GET['error'])){
         <section class="container">
             <article class="row section col s12">
 
+            <h1 class="flow-text">Foto de perfil</h1>
+
             <div class="col s3"></div>
             <div class="row">
                 <div class="col s6 m6 xl4">

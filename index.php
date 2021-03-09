@@ -11,7 +11,7 @@ notLogout();
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Bienvenidos a Geylan</title>
+    <title>Bienvenidos a Geyland</title>
     <link rel="stylesheet" href="style/estilo.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>

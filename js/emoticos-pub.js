@@ -36,120 +36,150 @@ var s30 = document.getElementById('p30');
 // funcion para detectar el click
 s1.addEventListener('click', () => {
     textarea.value += "😀";
+    textarea.focus();
 });
 
 s2.addEventListener('click', () => {
     textarea.value += "🤣";
+    textarea.focus();
 });
 
 s3.addEventListener('click', () => {
     textarea.value += "😍";
+    textarea.focus();
 });
 
 s4.addEventListener('click', () => {
     textarea.value += "😘";
+    textarea.focus();
 });
 
 s5.addEventListener('click', () => {
     textarea.value += "😜";
+    textarea.focus();
 });
 
 s6.addEventListener('click', () => {
     textarea.value += "😎";
+    textarea.focus();
 });
 
 s7.addEventListener('click', () => {
     textarea.value += "😇";
+    textarea.focus();
 });
 
 s8.addEventListener('click', () => {
     textarea.value += "🤨";
+    textarea.focus();
 });
 
 s9.addEventListener('click', () => {
     textarea.value += "😷";
+    textarea.focus();
 });
 
 s10.addEventListener('click', () => {
     textarea.value += "🤬";
+    textarea.focus();
 });
 
 s11.addEventListener('click', () => {
     textarea.value += "😈";
+    textarea.focus();
 });
 
 s12.addEventListener('click', () => {
     textarea.value += "🤡";
+    textarea.focus();
 });
 
 s13.addEventListener('click', () => {
     textarea.value += "💩";
+    textarea.focus();
 });
 
 s14.addEventListener('click', () => {
     textarea.value += "🤑";
+    textarea.focus();
 });
 
 s15.addEventListener('click', () => {
     textarea.value += "😱";
+    textarea.focus();
 });
 
 s16.addEventListener('click', () => {
     textarea.value += "😭";
+    textarea.focus();
 });
 
 s17.addEventListener('click', () => {
     textarea.value += "😢";
+    textarea.focus();
 });
 
 s18.addEventListener('click', () => {
     textarea.value += "🤠";
+    textarea.focus();
 });
 
 s19.addEventListener('click', () => {
     textarea.value += "🎃";
+    textarea.focus();
 });
 
 s20.addEventListener('click', () => {
     textarea.value += "👍";
+    textarea.focus();
 });
 
 s21.addEventListener('click', () => {
     textarea.value += "👎";
+    textarea.focus();
 });
 
 s22.addEventListener('click', () => {
     textarea.value += "🤘";
+    textarea.focus();
 });
 
 s23.addEventListener('click', () => {
     textarea.value += "🖕";
+    textarea.focus();
 });
 
 s24.addEventListener('click', () => {
     textarea.value += "👋";
+    textarea.focus();
 });
 
 s25.addEventListener('click', () => {
     textarea.value += "🙏";
+    textarea.focus();
 });
 
 s26.addEventListener('click', () => {
     textarea.value += "👀";
+    textarea.focus();
 });
 
 s27.addEventListener('click', () => {
     textarea.value += "👮";
+    textarea.focus();
 });
 
 s28.addEventListener('click', () => {
     textarea.value += "👮‍♀️";
+    textarea.focus();
 });
 
 s29.addEventListener('click', () => {
     textarea.value += "👨‍💻";
+    textarea.focus();
 });
 
 s30.addEventListener('click', () => {
     textarea.value += "🕵️‍♂️";
+    textarea.focus();
 });

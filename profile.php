@@ -111,6 +111,10 @@ while ($row = $stmt->fetch()) {
                             </div><br>
                         <?php endif ?>
 
+                        <?php if($id_user == $id) : ?>
+                            <br>
+                        <?php endif ?>
+
                         <!-- country -->
                         <div class="col s12">
                             <p class="pink-text">
@@ -138,16 +142,77 @@ while ($row = $stmt->fetch()) {
         <section class="container">
             <article class="row section">
 
-                <div class="row">
-                    <div class="col s12">
-                        <ul class="tabs">
-                            <li class="tab col s12"><a class="active black-text center" href="#test1">Publicaciones</a></li>
-                        </ul>
-                    </div>
+            <div class="row">
+                <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s12"><a class="active" href="#pub">Publicaciones</a></li>
+                </ul>
+                </div>
 
+                <div id="pub" class="col s12">
+                
                     <!-- Publicaciones -->
+                    <div class="hide-on-small-only col s3 publication-div"></div>
+                    <div class="col s12 m7 xl6">
+                    <?php require_once('backend/profile-publication.php') ?>
+                    <?php foreach($result as $post) : ?>
+                        <div class="card">
 
-                <?php require_once('modal/option-profile.php') ?>
+                            <div>
+
+                                <!-- Foto de perfil -->
+                                <br>
+
+                                <?php if($post['photo_profile'] != false) : ?>
+                                    <img src="img-profile/<?=$post['photo_profile']?>" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 l2 xl2 img-adaptable circle" height="50">
+                                <?php else : ?>
+                                    <img src="images/user.png" alt="<?php echo $post['name'].' '.$post['surname'] ?>" class="col s2 m2 l2 xl2 img-adaptable circle" height="50">
+                                <?php endif ?>
+
+                                <span class="flow-text pink-text"><?php echo $post['name'].' '.$post['surname'] ?></span><br>
+
+                                <!-- <a href="conversation?user=">
+                                    <span class="right">
+                                        <i class="material-icons left small pink-text">near_me</i> 
+                                    </span><br>
+                                </a> -->
+
+                                <small class="grey-text">
+                                    Publicado el <?=form_fecha($post['create_at_pub'])?>
+                                </small>
+
+                                <?php if($post['messeger_pub'] != false) : ?>
+                                    <div class="col s12">
+                                        <p><?php echo $post['messeger_pub'] ?></p>
+                                    </div>
+                                <?php endif ?>
+
+                            </div>
+
+                                <div class="card-image">
+                                
+                                    <?php if($post['photo_pub'] != false): ?>
+                                        <img src="./photo/<?php echo $post['photo_pub'] ?>" alt="Publicaci&oacute;n de <?php echo $post['name'].' '.$post['surname'] ?>" />
+                                        <span class="card-title"><?php echo $post['name'].' '.$post['surname'] ?></span>
+                                    <?php endif ?>
+
+                                    <?php if($post['photo_pub'] == false): ?>
+                                    <!-- Mas espacios para las publicaciones -->
+                                        <br>
+                                    <?php endif ?>
+
+                                </div>
+                            <div class="card-content">
+
+                        </div>
+                    </div>
+                    <?php endforeach ?>
+                
+                </div>
+            </div>
+
+
+            <?php require_once('modal/option-profile.php') ?>
 
             </article>
         </section>

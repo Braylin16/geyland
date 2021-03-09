@@ -32,18 +32,6 @@ create_at_pub       datetime,
 CONSTRAINT fk_pub_user FOREIGN KEY(id_user_pub) REFERENCES users(id_user)
 )ENGINE=InnoDb;
 
-CREATE TABLE comment(
-id_comment          int(255) AUTO_INCREMENT PRIMARY KEY,
-id_user_comment     int(255) NOT NULL,
-id_pub_comment      int(255) NOT NULL,
-messeger_comment    text,
-ip_comment          varchar(200),
-browser_comment     varchar(200),
-create_at_comment   date,
-CONSTRAINT fk_comment_user FOREIGN KEY(id_user_comment) REFERENCES users(id_user),
-CONSTRAINT fk_pub_comment FOREIGN KEY(id_pub_comment) REFERENCES publication(id_pub)
-)ENGINE=InnoDb;
-
 CREATE TABLE messege(
 id_messege           int(255) AUTO_INCREMENT PRIMARY KEY,
 id_emisor            int(255) NOT NULL,
