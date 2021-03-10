@@ -149,8 +149,19 @@ nav {
 #chat-sala {
   height: 25rem;
   overflow: auto;
+  background-image: url("../images/conversation.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 
 .messege-row {
   margin: 4px 0px !important;
+}
+
+/* Media screen CHAT */
+@media only screen and (max-width: 1200px) {
+  #chat-sala {
+    height: 25rem;
+  }
 }

@@ -23,12 +23,14 @@ while ($row = $stmt->fetch()) {
 $_GET['user'] = $receptor;
 
 // Sacar todos los datos de la persona que ha iniciado sesion
-$stmt = $conexion->query("SELECT name, surname, photo_profile FROM users WHERE id_user = $receptor");
+$stmt = $conexion->query("SELECT name, surname, photo_profile, nick, description FROM users WHERE id_user = $receptor");
 $stmt->execute([$_GET['user']]);
 while ($row = $stmt->fetch()) {
     $name = $row['name'];
     $surname = $row['surname'];
     $photo_profile = $row['photo_profile'];
+    $nick = $row['nick'];
+    $description = $row['description'];
 
 }
 

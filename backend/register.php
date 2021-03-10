@@ -139,7 +139,7 @@ if(isset($_POST['register'])){
         
         $_SESSION['email'] = $email;
 
-        header('Location: complete');
+        header('Location: ./complete');
     }
 
 }
