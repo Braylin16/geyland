@@ -2,7 +2,7 @@
  // Sacar los usuarios con los que he tenido una conversacion
  $stetament = $conexion->prepare(
     "SELECT `id_user`, id_emisor, name, surname, photo_profile,
-    create_at_messege, messege
+    create_at_messege, messege, view
     FROM (
       SELECT id_user,
         MAX(id_messege) id_messege

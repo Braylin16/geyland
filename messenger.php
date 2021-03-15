@@ -60,6 +60,17 @@ logout();
                                 <i class="material-icons">photo</i>
                             <?php endif ?>
 
+                            <?php if($post['view'] == 'Si' AND $post['id_emisor'] == $id) : ?>
+                                <!-- Leido -->
+                                <i class="material-icons blue-text tooltipped" data-position="top" data-tooltip="Le&iacute;do">
+                                    done_all
+                                </i>
+                            <?php elseif($post['view'] == 'No') : ?>
+                                <i class="material-icons tooltipped" data-position="top" data-tooltip="Mensaje enviado">
+                                    check
+                                </i>
+                            <?php endif ?>
+
                         </span>
 
                         <button type="button" class="col s4 m3 xl2 right btn-color btn">

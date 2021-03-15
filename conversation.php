@@ -77,7 +77,7 @@ if(isset($_GET['user'])){
                                 <!-- Smogis -->
                                 <i class="material-icons prefix red-text dropdown-trigger" data-target='emotico'>insert_emoticon</i>
                                 
-                                <textarea id="messege" name="messege" class="materialize-textarea" required></textarea>
+                                <textarea id="messege" name="messege" class="materialize-textarea" autofocus required></textarea>
                                 <label for="messege">Escribe un mensaje...</label>
 
                                 <input type="hidden" id="receptor" value="<?=$receptor?>" />

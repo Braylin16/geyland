@@ -138,8 +138,6 @@ if(isset($_POST['register'])){
         setcookie("PH_DRgmeTSG", "$pass", time() + 31536000);
         
         $_SESSION['email'] = $email;
-
-        header('Location: ./complete');
     }
 
 }

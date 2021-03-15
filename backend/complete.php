@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
             ':orientation' => $orientation
         ));
 
-        header("Location: ../photo-profile");
+        header("Location: ./photo-profile");
     }
 
 }
