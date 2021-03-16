@@ -53,9 +53,9 @@ $usuarios = [
     $receptor => $prepUser->fetch(PDO::FETCH_ASSOC)
 ];
 
-$consulta = "SELECT messege, photo_messege, create_at_messege, id_emisor, id_receptor
+$consulta = "SELECT messege, photo_messege, create_at_messege, view, id_emisor, id_receptor
     FROM messege
-    WHERE (id_emisor = ? AND id_receptor = ?) OR (id_emisor = ? AND id_receptor = ?)";
+    WHERE (id_emisor = ? AND id_receptor = ?) OR (id_emisor = ? AND id_receptor = ?) LIMIT 100";
 
 // Ejecutar consulta:
 $prep = $conexion->prepare($consulta);
@@ -102,6 +102,17 @@ $mensajes = $prep->fetchAll(PDO::FETCH_ASSOC);
                 
                 <?php if($mensaje['photo_messege'] == true) : ?>
                     <img src="messege-photo/<?php echo $mensaje['photo_messege']; ?>" width="300" alt="Una foto">
+                <?php endif ?>
+
+                <?php if($mensaje['view'] == 'Si' AND $mensaje['id_emisor'] == $id) : ?>
+                <!-- Leido -->
+                <i class="material-icons blue-text" title="Le&iacute;do">
+                    done_all
+                </i>
+                <?php elseif($mensaje['id_emisor'] == $id AND $mensaje['view'] == 'No') : ?>
+                    <i class="material-icons grey-text" title="Mensaje enviado">
+                        check
+                    </i>
                 <?php endif ?>
                 
             </span>

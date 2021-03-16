@@ -65,7 +65,7 @@ logout();
                                 <i class="material-icons blue-text tooltipped" data-position="top" data-tooltip="Le&iacute;do">
                                     done_all
                                 </i>
-                            <?php elseif($post['view'] == 'No') : ?>
+                            <?php elseif($post['id_emisor'] == $id AND $post['view'] == 'No') : ?>
                                 <i class="material-icons tooltipped" data-position="top" data-tooltip="Mensaje enviado">
                                     check
                                 </i>
