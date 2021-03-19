@@ -60,6 +60,13 @@ logout();
                                 <i class="material-icons">photo</i>
                             <?php endif ?>
 
+                            <?php if($post['view'] == 'No' AND $post['id_emisor'] != $id) : ?>
+                                <!-- Solo si el no he leido el mensaje -->
+                                <i class="material-icons tiny red-text tooltipped" data-position="top" data-tooltip="El mensaje no ha sido le&iacute;do">
+                                    fiber_manual_record
+                                </i>
+                            <?php endif ?>
+
                             <?php if($post['view'] == 'Si' AND $post['id_emisor'] == $id) : ?>
                                 <!-- Leido -->
                                 <i class="material-icons blue-text tooltipped" data-position="top" data-tooltip="Le&iacute;do">

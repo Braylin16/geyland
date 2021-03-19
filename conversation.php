@@ -5,7 +5,6 @@ $email = $_SESSION['email'];
 require_once('user/user.php');
 require_once('url/url.php');
 require_once('remember/remember.php');
-require_once('view-messege/view-messege.php');
 logout();
 
 error_reporting(0);
@@ -26,6 +25,8 @@ if(isset($_GET['user'])){
 }else{
     header("Location: $url");
 }
+
+require_once('view-messege/view-messege.php');
 
 ?>
 <!DOCTYPE html>
