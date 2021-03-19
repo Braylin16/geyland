@@ -62,7 +62,7 @@ logout();
 
                             <?php if($post['view'] == 'No' AND $post['id_emisor'] != $id) : ?>
                                 <!-- Solo si el no he leido el mensaje -->
-                                <i class="material-icons tiny red-text tooltipped" data-position="top" data-tooltip="El mensaje no ha sido le&iacute;do">
+                                <i class="material-icons tiny red-text tooltipped" data-position="top" data-tooltip="No has le&iacute;do este mensaje">
                                     fiber_manual_record
                                 </i>
                             <?php endif ?>
@@ -73,7 +73,7 @@ logout();
                                     done_all
                                 </i>
                             <?php elseif($post['id_emisor'] == $id AND $post['view'] == 'No') : ?>
-                                <i class="material-icons tooltipped" data-position="top" data-tooltip="Mensaje enviado">
+                                <i class="material-icons tooltipped" data-position="top" data-tooltip="<?=$post['name']?> a&uacute;n no ha le&iacute;do tu mensaje">
                                     check
                                 </i>
                             <?php endif ?>

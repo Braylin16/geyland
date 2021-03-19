@@ -97,6 +97,7 @@
                         <i class="material-icons right">mail</i>
                         <?php if($noti != 0) : ?>
                             <span class="notification cyan pulse tooltipped" data-position="bottom" data-tooltip="Tienes <?=$noti?> mensajes sin leer">
+                                <?php if($noti >= 9) {$noti = '4+'; } ?>
                                 <?=$noti?>
                             </span>
                         <?php endif ?>
