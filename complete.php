@@ -3,6 +3,8 @@ require_once('connection/connection.php');
 require_once('functions/functions.php');
 require_once('url/url.php');
 $email = $_SESSION['email'];
+require_once('user/user.php');
+require_once('./backend/notification.php');
 require_once('backend/complete.php');
 logout();
 ?>
@@ -11,7 +13,7 @@ logout();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geyland | Completa tus datos para lograr conectarte con personas interesantes</title>
+    <title><?php if(isset($noti)){echo "($noti)";} ?> Geyland | Completa tus datos para lograr conectarte con personas interesantes</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />

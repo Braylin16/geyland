@@ -3,6 +3,7 @@ require_once('connection/connection.php');
 require_once('functions/functions.php');
 $email = $_SESSION['email'];
 require_once('user/user.php');
+require_once('./backend/notification.php');
 require_once('backend/setting-password.php');
 require_once('remember/remember.php');
 logout();
@@ -12,7 +13,7 @@ logout();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambiar contrase&ntilde;a | Geyland</title>
+    <title><?php if(isset($noti)){echo "($noti)";} ?> Cambiar contrase&ntilde;a | Geyland</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />

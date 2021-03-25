@@ -3,6 +3,7 @@ require_once('connection/connection.php');
 require_once('functions/functions.php');
 $email = $_SESSION['email'];
 require_once('user/user.php');
+require_once('./backend/notification.php');
 require('url/url.php');
 require_once('remember/remember.php');
 logout();
@@ -47,7 +48,7 @@ while ($row = $stmt->fetch()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$name.' '.$surname?> | Geyland</title>
+    <title><?php if(isset($noti)){echo "($noti)";} ?> <?=$name.' '.$surname?> | Geyland</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />
@@ -130,7 +131,7 @@ while ($row = $stmt->fetch()) {
 
                         <!-- Descripcion -->
                         <div class="col s12 m6 xl6">
-                            <p><?=$description?></p>
+                            <p><?=url($description)?></p>
                         </div>
 
                     </div>

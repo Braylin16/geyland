@@ -15,7 +15,7 @@
         <a href="messenger" class="messenger-dropdown tooltipped" data-position="bottom" data-tooltip="Tienes <?=$noti?> mensajes sin leer">
             <?php if($noti != 0) : ?>
                 <span class="notification cyan pulse">
-                    <?php if($noti >= 9) {$noti = '4+'; } ?>
+                    <?php if($noti >= 9) {$noti = '9+'; } ?>
                     <?=$noti?>
                 </span>
             <?php else : ?>

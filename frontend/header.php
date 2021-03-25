@@ -1,7 +1,3 @@
-<!-- Requerimos las url -->
-<?php require_once('./url/url.php') ?>
-<?php require_once('./user/user.php') ?>
-<?php require_once('./backend/notification.php') ?>
 <!-- Header -->
 <header>
     <!-- Dropdown Structure1 -->
@@ -97,7 +93,7 @@
                         <i class="material-icons right">mail</i>
                         <?php if($noti != 0) : ?>
                             <span class="notification cyan pulse tooltipped" data-position="bottom" data-tooltip="Tienes <?=$noti?> mensajes sin leer">
-                                <?php if($noti >= 9) {$noti = '4+'; } ?>
+                                <?php if($noti >= 9) {$noti = '9+'; } ?>
                                 <?=$noti?>
                             </span>
                         <?php endif ?>

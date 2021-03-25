@@ -23,6 +23,13 @@ function fecha($fecha){
 
 }
 
+function publication($text){
+    $text = html_entity_decode($text);
+    $text = "".$text;
+    $text = preg_replace('/(https{0,1}:\/\/[\w\-\.\/#?&=]*)/','<a href="$1" target="_blank">$1</a>',$text);
+    return $text;
+}
+
  // sacar todas las publicaciones
  $stetament = $conexion->prepare(
     "SELECT users.id_user, users.name, users.surname, users.photo_profile, publication.id_pub, publication.id_user_pub, publication.messeger_pub, publication.photo_pub, publication.create_at_pub FROM publication INNER JOIN users WHERE users.id_user = publication.id_user_pub ORDER BY publication.id_pub DESC LIMIT 10"
@@ -66,7 +73,7 @@ $result = $stetament->fetchAll();
 
                 <?php if($post['messeger_pub'] != false) : ?>
                     <div class="col s12">
-                        <p><?php echo $post['messeger_pub'] ?></p>
+                        <p><?php echo publication($post['messeger_pub']) ?></p>
                     </div>
                 <?php endif ?>
 

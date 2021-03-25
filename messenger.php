@@ -5,13 +5,15 @@ require_once('url/url.php');
 require_once('remember/remember.php');
 $email = $_SESSION['email'];
 logout();
+require_once('./user/user.php');
+require_once('./backend/notification.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis conversaciones | Geyland</title>
+    <title><?php if(isset($noti)){echo "($noti)";} ?> Mis conversaciones | Geyland</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />
@@ -50,29 +52,31 @@ logout();
                         <small class="black-text"><?=form_fecha($post['create_at_messege'])?></small><br>
                         <span class="grey-text">
 
-                            <?php if($post['id_emisor'] == $id) : ?>
+                            <?php if($post['ultimo_id_messege_env'] > $post['ultimo_id_messege_rec']) : ?>
                                 <span class="purple-text">T&uacute;:</span>
-                            <?php endif ?> 
+                            <?php endif ?>
 
                             <?php if($post['messege'] != false) : ?>
-                                <?=$post['messege']?>
+                                <?=mb_substr($post['messege'], 0, 60)?>
                             <?php else : ?>
                                 <i class="material-icons">photo</i>
                             <?php endif ?>
 
                             <?php if($post['view'] == 'No' AND $post['id_emisor'] != $id) : ?>
                                 <!-- Solo si el no he leido el mensaje -->
-                                <i class="material-icons tiny red-text tooltipped" data-position="top" data-tooltip="No has le&iacute;do este mensaje">
-                                    fiber_manual_record
-                                </i>
+                                <?php if($post['countMessege'] != 0) : ?>
+                                    <span class="CountMsg tooltipped" data-position="top" data-tooltip="<?=$post['countMessege']?> mensaje sin leer">
+                                        <?=$post['countMessege']?>
+                                    </span>
+                                <?php endif ?>
                             <?php endif ?>
 
-                            <?php if($post['view'] == 'Si' AND $post['id_emisor'] == $id) : ?>
+                            <?php if($post['view'] == 'Si' AND $post['ultimo_id_messege_env'] > $post['ultimo_id_messege_rec']) : ?>
                                 <!-- Leido -->
                                 <i class="material-icons blue-text tooltipped" data-position="top" data-tooltip="Le&iacute;do">
                                     done_all
                                 </i>
-                            <?php elseif($post['id_emisor'] == $id AND $post['view'] == 'No') : ?>
+                            <?php elseif($post['ultimo_id_messege_env'] > $post['ultimo_id_messege_rec'] AND $post['view'] == 'No') : ?>
                                 <i class="material-icons tooltipped" data-position="top" data-tooltip="<?=$post['name']?> a&uacute;n no ha le&iacute;do tu mensaje">
                                     check
                                 </i>

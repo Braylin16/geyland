@@ -4,6 +4,7 @@ require_once('functions/functions.php');
 require_once('url/url.php');
 $email = $_SESSION['email'];
 require_once('user/user.php');
+require_once('./backend/notification.php');
 require_once('backend/contact.php');
 logout();
 ?>
@@ -12,7 +13,7 @@ logout();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geyland | Entra en comunicaci&oacute;n con nuestro equipo</title>
+    <title><?php if(isset($noti)){echo "($noti)";} ?> Geyland | Entra en comunicaci&oacute;n con nuestro equipo</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="materialize/css/materialize.min.css">
     <link rel="stylesheet" href="materialize/css/materialize-icons.css" />

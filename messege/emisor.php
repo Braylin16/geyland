@@ -22,6 +22,14 @@ while ($row = $stmt->fetch()) {
 
 $_GET['user'] = $receptor;
 
+// URL en los mensajes
+function messegeURL($text){
+    $text = html_entity_decode($text);
+    $text = "".$text;
+    $text = preg_replace('/(https{0,1}:\/\/[\w\-\.\/#?&=]*)/','<a href="$1" target="_blank">$1</a>',$text);
+    return $text;
+}
+
 // Sacar todos los datos de la persona que ha iniciado sesion
 $stmt = $conexion->query("SELECT name, surname, photo_profile, nick, description FROM users WHERE id_user = $receptor");
 $stmt->execute([$_GET['user']]);
@@ -98,7 +106,7 @@ $mensajes = $prep->fetchAll(PDO::FETCH_ASSOC);
             <?php endif ?>
 
             <span class="<?php echo $clase; ?>" title="<?php echo $mensaje['create_at_messege']; ?>">
-                <?php echo $mensaje['messege']; ?>
+                <?php echo messegeURL($mensaje['messege']); ?>
                 
                 <?php if($mensaje['photo_messege'] == true) : ?>
                     <img src="messege-photo/<?php echo $mensaje['photo_messege']; ?>" width="300" alt="Una foto">
